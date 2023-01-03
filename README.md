@@ -3,8 +3,8 @@
   <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=YELLOW&style=flat-square"/>
 </p>
 
-:page_with_curl: DESCRIÇÃO
-O Volts é um sistema em desenvolvimento, pensado para auxiliar na gestão de voluntários da Comunidade Alcance de Curitiba.
+<h2>:page_with_curl: DESCRIÇÃO</h2>
+<p>O Volts é um sistema em desenvolvimento, pensado para auxiliar na gestão de voluntários da Comunidade Alcance de Curitiba.</p>
 
 :clipboard: TAREFAS
 - [ ] Criar tela de login

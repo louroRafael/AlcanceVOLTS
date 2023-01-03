@@ -6,7 +6,7 @@
 <h2>:page_with_curl: DESCRIÇÃO</h2>
 <p>O Volts é um sistema em desenvolvimento, pensado para auxiliar na gestão de voluntários da Comunidade Alcance de Curitiba.</p>
 
-:clipboard: TAREFAS
+<h2>:clipboard: TAREFAS</h2>
 - [ ] Criar tela de login
 - [ ] Criar página inicial com menu e espaço para dashboard
 - [ ] Criar cadastro de voluntários (permitindo importação via planilha excel)

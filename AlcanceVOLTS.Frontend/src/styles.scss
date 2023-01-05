@@ -1,1 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
+@import "variables";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+//-------------------- General Styles --------------------//
+
+html, body { 
+    height: 100%; 
+}
+
+body {
+    background-color: $color-4 !important;
+    font-family: $font-1 !important;
+    margin: 0;
+}
+
+//-------------------- Title and Text --------------------//
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-2 !important;
+    text-transform: uppercase;
+}
+
+//-------------------- Form and Inputs --------------------//
+
+.mat-form-field {
+    width: 100%;
+    margin: 5px 0;
+}
+
+.mat-form-field-label {
+    font-family: $font-1 !important;
+}
+
+.mat-form-field.mat-focused {
+    .mat-form-field-label, span {
+        color: $color-1;
+    }
+
+    .mat-form-field-ripple {
+        background-color: $color-1;
+    }
+}
+
+.mat-form-field.mat-form-field-invalid {
+    .mat-form-field-label, span {
+        color: $color-error;
+    }
+
+    .mat-form-field-ripple {
+        background-color: $color-error;
+    }
+}
+
+.mat-input-element {
+    caret-color: $color-1;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

@@ -3,7 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlcanceVOLTS.API", "AlcanceVOLTS.API\AlcanceVOLTS.API.csproj", "{65F346E5-12F3-426E-859C-E81FFB35646D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlcanceVOLTS.API", "AlcanceVOLTS.API\AlcanceVOLTS.API.csproj", "{65F346E5-12F3-426E-859C-E81FFB35646D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6CE630E8-F936-479F-9D9A-F31D508BAF2F} = {6CE630E8-F936-479F-9D9A-F31D508BAF2F}
+		{D9737FE2-A68E-4BB0-A797-293551E6E3C6} = {D9737FE2-A68E-4BB0-A797-293551E6E3C6}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlcanceVOLTS.Domain", "AlcanceVOLTS.Domain\AlcanceVOLTS.Domain.csproj", "{6CE630E8-F936-479F-9D9A-F31D508BAF2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlcanceVOLTS.Repository", "AlcanceVOLTS.Repository\AlcanceVOLTS.Repository.csproj", "{D9737FE2-A68E-4BB0-A797-293551E6E3C6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6CE630E8-F936-479F-9D9A-F31D508BAF2F} = {6CE630E8-F936-479F-9D9A-F31D508BAF2F}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +26,14 @@ Global
 		{65F346E5-12F3-426E-859C-E81FFB35646D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65F346E5-12F3-426E-859C-E81FFB35646D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65F346E5-12F3-426E-859C-E81FFB35646D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CE630E8-F936-479F-9D9A-F31D508BAF2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CE630E8-F936-479F-9D9A-F31D508BAF2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CE630E8-F936-479F-9D9A-F31D508BAF2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CE630E8-F936-479F-9D9A-F31D508BAF2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9737FE2-A68E-4BB0-A797-293551E6E3C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9737FE2-A68E-4BB0-A797-293551E6E3C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9737FE2-A68E-4BB0-A797-293551E6E3C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9737FE2-A68E-4BB0-A797-293551E6E3C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

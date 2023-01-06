@@ -1,0 +1,17 @@
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Repository\bin\Debug\net6.0\AlcanceVOLTS.Repository.deps.json
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Repository\bin\Debug\net6.0\AlcanceVOLTS.Repository.runtimeconfig.json
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Repository\bin\Debug\net6.0\AlcanceVOLTS.Repository.dll
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Repository\bin\Debug\net6.0\AlcanceVOLTS.Repository.pdb
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Repository\bin\Debug\net6.0\AlcanceVOLTS.Domain.dll
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Repository\bin\Debug\net6.0\AlcanceVOLTS.Domain.pdb
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Repository\obj\Debug\net6.0\AlcanceVOLTS.Repository.csproj.AssemblyReference.cache
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Repository\obj\Debug\net6.0\AlcanceVOLTS.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Repository\obj\Debug\net6.0\AlcanceVOLTS.Repository.AssemblyInfoInputs.cache
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Repository\obj\Debug\net6.0\AlcanceVOLTS.Repository.AssemblyInfo.cs
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Repository\obj\Debug\net6.0\AlcanceVOLTS.Repository.csproj.CoreCompileInputs.cache
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Repository\obj\Debug\net6.0\AlcanceVOLTS.Repository.csproj.CopyComplete
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Repository\obj\Debug\net6.0\AlcanceVOLTS.Repository.dll
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Repository\obj\Debug\net6.0\refint\AlcanceVOLTS.Repository.dll
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Repository\obj\Debug\net6.0\AlcanceVOLTS.Repository.pdb
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Repository\obj\Debug\net6.0\AlcanceVOLTS.Repository.genruntimeconfig.cache
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Repository\obj\Debug\net6.0\ref\AlcanceVOLTS.Repository.dll

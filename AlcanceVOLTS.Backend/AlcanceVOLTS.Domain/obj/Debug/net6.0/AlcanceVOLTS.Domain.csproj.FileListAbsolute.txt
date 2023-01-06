@@ -1,0 +1,12 @@
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Domain\bin\Debug\net6.0\AlcanceVOLTS.Domain.deps.json
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Domain\bin\Debug\net6.0\AlcanceVOLTS.Domain.dll
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Domain\bin\Debug\net6.0\AlcanceVOLTS.Domain.pdb
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Domain\obj\Debug\net6.0\AlcanceVOLTS.Domain.csproj.AssemblyReference.cache
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Domain\obj\Debug\net6.0\AlcanceVOLTS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Domain\obj\Debug\net6.0\AlcanceVOLTS.Domain.AssemblyInfoInputs.cache
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Domain\obj\Debug\net6.0\AlcanceVOLTS.Domain.AssemblyInfo.cs
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Domain\obj\Debug\net6.0\AlcanceVOLTS.Domain.csproj.CoreCompileInputs.cache
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Domain\obj\Debug\net6.0\AlcanceVOLTS.Domain.dll
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Domain\obj\Debug\net6.0\refint\AlcanceVOLTS.Domain.dll
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Domain\obj\Debug\net6.0\AlcanceVOLTS.Domain.pdb
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.Domain\obj\Debug\net6.0\ref\AlcanceVOLTS.Domain.dll

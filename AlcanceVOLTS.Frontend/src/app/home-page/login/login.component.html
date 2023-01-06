@@ -1,4 +1,5 @@
 <div class="login-page">
+    <img class="background-image" src="assets/images/v-volts.png" alt="V de Volts">
     <div class="logo">
         <img src="assets/images/logo-volts.png" alt="Logo Volts">
         <h1>Um empurrão que move uma corrente de voluntários</h1>
@@ -7,15 +8,15 @@
         <mat-card-title>Login</mat-card-title>
         <mat-card-subtitle>Informe seus dados de acesso</mat-card-subtitle>
         <mat-card-content>
-            <form submit="login()">
+            <form [formGroup]="loginForm" (submit)="login()">
                 <div class="row">
                     <mat-form-field>
                         <mat-label>E-mail</mat-label>
-                        <input type="email" matInput [formControl]="email">
-                        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                        <input type="email" matInput [formControl]="emailFormControl">
+                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                             Por favor, coloque um endereço de e-mail válido.
                         </mat-error>
-                        <mat-error *ngIf="email.hasError('required')">
+                        <mat-error *ngIf="emailFormControl.hasError('required')">
                             E-mail é <strong>obrigatório</strong>
                         </mat-error>
                     </mat-form-field>
@@ -24,8 +25,8 @@
                 <div class="row">
                     <mat-form-field>
                         <mat-label>Senha</mat-label>
-                        <input type="password" matInput [formControl]="password">
-                        <mat-error *ngIf="password.hasError('required')">
+                        <input type="password" matInput [formControl]="passwordFormControl">
+                        <mat-error *ngIf="passwordFormControl.hasError('required')">
                             Senha é <strong>obrigatório</strong>
                         </mat-error>
                     </mat-form-field>

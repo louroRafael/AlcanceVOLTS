@@ -13,6 +13,11 @@ body {
     margin: 0;
 }
 
+.page-title {
+    font-family: $font-2;
+    color: $color-3;
+}
+
 //-------------------- Title and Text --------------------//
 
 h1, h2, h3, h4, h5, h6 {
@@ -53,6 +58,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .mat-input-element {
     caret-color: $color-1;
+}
+
+//--------------------- Snackbars ---------------------
+
+.error-snackbar {
+    background-color: $color-error;
+    color: $color-3;
+}
+
+.alert-snackbar {
+    background-color: $color-alert;
+    color: $color-3;
+}
+
+.success-snackbar {
+    background-color: $color-success;
+    color: $color-3;
 }
 
 /* Importing Bootstrap SCSS file. */

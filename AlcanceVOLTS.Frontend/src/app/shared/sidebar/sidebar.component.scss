@@ -1,0 +1,50 @@
+@import "../../../variables";
+
+.sidebar-container {
+    width: 100%;
+    height: calc(100vh - $header-height);
+    position: fixed;
+    top: $header-height;
+    background: none;
+
+    .example-sidenav {
+        padding: 20px;
+    }
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .nav-item {
+        padding: 5px 0;
+    }
+
+    a {
+        font-family: $font-2;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: $color-1;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    i {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+}
+
+.mat-drawer.mat-drawer-side {
+    width: $sidebar-width;
+    padding: 20px 0;
+    background-color: $color-5;
+    box-shadow: 0 0 20px #CCC;
+}
+  
+  

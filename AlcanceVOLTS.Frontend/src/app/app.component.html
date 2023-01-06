@@ -1,1 +1,3 @@
+<app-header (sidebarToggle)="toggleSidebar()" *ngIf="!loginPage"></app-header>
+<app-sidebar *ngIf="!loginPage"></app-sidebar>
 <router-outlet></router-outlet>

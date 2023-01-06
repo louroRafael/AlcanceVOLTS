@@ -1,0 +1,73 @@
+@import "../../../variables";
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: $header-height;
+    background-color: $color-1;
+    z-index: 998;
+    box-shadow: 0 2px 20px #0129701a;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all .5s;
+}
+
+.home-and-sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    img {
+        max-height: 45px;
+    }
+
+    .btn-toggle-sidebar {
+        font-size: 30px;
+        color: $color-2;
+        margin-left: 10px;
+    }
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+
+    .header-buttons {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+
+        .mat-menu-trigger {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: $font-2;
+            font-size: 20px;
+            text-transform: uppercase;
+
+            i {
+                font-size: 22px;
+            }
+        }
+
+        .mat-menu-trigger:focus {
+            outline: none;
+        }
+    }
+}
+
+button.mat-menu-item {
+    border: none;
+    font-size: 16px;
+}
+
+button:focus {
+    outline: none;
+}

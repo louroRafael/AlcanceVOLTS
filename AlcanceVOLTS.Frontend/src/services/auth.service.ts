@@ -28,7 +28,6 @@ export class AuthService {
 
 	login(email: string, password: string) {
 		this.loginService.login(email, password).subscribe(r => {
-			console.log(r)
 			this.saveAuthResult(r);
 			this.router.navigate(['home']);
 			this.usuarioLogado.emit(true);
@@ -53,8 +52,6 @@ export class AuthService {
 
 		const tokenInfo = this.getTokenPayload(authResult.accessToken);
 
-		console.log(tokenInfo)
-
 		this.storage.setItem(GLOBAL.UserDisplayNameStorageKey, tokenInfo.name);
 		this.storage.setItem(GLOBAL.UserMailStorageKey, tokenInfo.email);
 		this.storage.setItem(GLOBAL.UserRoleStorageKey, tokenInfo.role);
@@ -68,8 +65,8 @@ export class AuthService {
 		const decoded = JSON.parse(this.b64DecodeUnicode(base64));
 
 		const result = <TokenPayload>{
-		  	id: decoded.unique_name,
-		  	name: decoded.name,
+		  	id: decoded.unique_name[2],
+		  	name: decoded.unique_name[1],
 		  	email: decoded.email,
 		  	role: decoded.role,
 		};

@@ -1,0 +1,24 @@
+<header>
+    <div class="home-and-sidebar" (click)="toggleSidebar()">
+        <img src="assets/images/logo-volts-preto.png" alt="Prata Fina Logo">
+        <i class="bi bi-list btn-toggle-sidebar"></i>
+    </div>
+
+    <nav class="header-nav">
+        <ul class="header-buttons">
+            <li class="nav-item dropdown">
+                <button mat-button [matMenuTriggerFor]="profileMenu">
+                    {{userName}}
+                    <i class="bi bi-person-circle"></i>
+                </button>
+                <mat-menu #profileMenu="matMenu">
+                    <button mat-menu-item (click)="logout()">
+                        Sair
+                        <i class="bi bi-box-arrow-right"></i>
+                    </button>
+                </mat-menu>
+            </li>
+        </ul>
+    </nav>
+</header>
+

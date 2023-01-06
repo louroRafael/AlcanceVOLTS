@@ -13,9 +13,23 @@ body {
     margin: 0;
 }
 
+.page {
+    background-color: $color-3;
+    width: 100%;
+    height: calc(100vh - $header-height);
+    position: fixed;
+    top: $header-height;
+    padding: 20px 30px;
+    transition: all 0.3s;
+}
+
+.page-sidebar {
+    margin-left: $sidebar-width;
+}
+
 .page-title {
     font-family: $font-2;
-    color: $color-3;
+    color: $color-5;
 }
 
 //-------------------- Title and Text --------------------//

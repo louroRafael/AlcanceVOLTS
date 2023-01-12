@@ -1,3 +1,4 @@
 <app-header (sidebarToggle)="toggleSidebar()" *ngIf="!loginPage"></app-header>
 <app-sidebar *ngIf="!loginPage"></app-sidebar>
+<img src="assets/images/background-volts.png" alt="Volts Background" class="background" *ngIf="!loginPage">
 <router-outlet></router-outlet>

@@ -1,7 +1,7 @@
 @import "../../../variables";
 
 .sidebar-container {
-    width: 100%;
+    width: $sidebar-width;
     height: calc(100vh - $header-height);
     position: fixed;
     top: $header-height;
@@ -20,7 +20,7 @@
     align-items: center;
 
     .nav-item {
-        padding: 5px 0;
+        padding: 20px 0;
     }
 
     a {

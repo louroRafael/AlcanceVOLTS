@@ -19,7 +19,7 @@ namespace AlcanceVOLTS.Domain.Dtos.User
             this.Id = user.Id.ToString();
             this.Name = user.Name;
             this.Login = user.Login;
-            this.Active = user.Active ? "Ativo" : "Não Ativo";
+            this.Active = user.Active ? "Sim" : "Não";
             this.UserType = user.UserType;
         }
 

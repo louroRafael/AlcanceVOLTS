@@ -1,0 +1,46 @@
+<div id="page" class="page">
+    <div class="page-header">
+        <div class="page-title">
+            <h2>Listar <span>Usuários</span></h2>
+        </div>
+    </div>
+    <div class="table-container">
+        <table class="table-striped" [dataSource]="dataSource" mat-table matSort>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>NOME</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.name }}
+                </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="login">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>E-MAIL</th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.login }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="userType">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>TIPO USUÁRIO</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ getUserTypeLabel(element.userType) }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="active">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>ATIVO</th>
+                <td mat-cell *matCellDef="let element" class="td-text">
+                  {{ element.active }}
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+        <mat-paginator  [pageSize]="10"
+                        [pageSizeOptions] = "[10, 20, 30, dataSource.data.length]"
+                        showFirstLastButtons> 
+        </mat-paginator>
+    </div>
+</div>

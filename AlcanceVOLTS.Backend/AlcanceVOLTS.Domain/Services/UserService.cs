@@ -1,4 +1,6 @@
-﻿using AlcanceVOLTS.Domain.Infra.Helpers;
+﻿using AlcanceVOLTS.Domain.Dtos.Common;
+using AlcanceVOLTS.Domain.Dtos.User;
+using AlcanceVOLTS.Domain.Infra.Helpers;
 using AlcanceVOLTS.Domain.Interfaces.Repositories;
 using AlcanceVOLTS.Domain.Interfaces.Services;
 using AlcanceVOLTS.Domain.Models;
@@ -17,6 +19,8 @@ namespace AlcanceVOLTS.Domain.Services
 
         public async Task<User> UserAuthenticate(string email, string password) => await _repository.FirstOrDefaultAsync(u => u.Login.Equals(email) && !string.IsNullOrEmpty(password) && u.Password.Equals(password.ToMD5()));
 
-        public async Task<User> GetUserByEmail(string email) => await this._repository.FirstOrDefaultAsync(u => u.Login.Equals(email));
+        public async Task<User> GetUserByEmail(string email) => await _repository.FirstOrDefaultAsync(u => u.Login.Equals(email));
+
+        public async Task<List<UserDTO>> GetAllByFilter(FilterDTO filter) => await _repository.GetAllByFilter(filter);
     }
 }

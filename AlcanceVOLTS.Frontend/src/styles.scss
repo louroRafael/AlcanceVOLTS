@@ -8,14 +8,13 @@ html, body {
 }
 
 body {
-    background-color: $color-4 !important;
+    background-color: $color-3 !important;
     font-family: $font-1 !important;
     margin: 0;
 }
 
 .page {
-    background-color: $color-3;
-    width: 100%;
+    width: 100vw;
     height: calc(100vh - $header-height);
     position: fixed;
     top: $header-height;
@@ -25,11 +24,49 @@ body {
 
 .page-sidebar {
     margin-left: $sidebar-width;
+    width: calc(100vw - $sidebar-width);
 }
 
 .page-title {
     font-family: $font-2;
     color: $color-5;
+
+    span {
+        font-weight: bold;
+    }
+}
+
+.container-buttons-footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-left: -30px;
+    padding: 20px;
+
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 120px;
+        font-family: $font-1;
+        font-weight: bold;
+        color: $color-2;
+        border-radius: 50px;
+        border: none;
+        padding: 10px;
+        height: 50px;
+        transition: all 0.3s;
+
+        i {
+            font-size: 30px;
+        }
+    }
+    
+    .btn-primary {
+        background-color: $color-1;
+    }
 }
 
 //-------------------- Title and Text --------------------//
@@ -73,7 +110,6 @@ h1, h2, h3, h4, h5, h6 {
 .mat-input-element {
     caret-color: $color-1;
 }
-
 //--------------------- Snackbars ---------------------
 
 .error-snackbar {
@@ -90,6 +126,50 @@ h1, h2, h3, h4, h5, h6 {
     background-color: $color-success;
     color: $color-3;
 }
+
+//--------------------- Table ---------------------
+
+.table-container {
+    position: relative;
+    top: 100px;
+}
+
+.mat-table {
+    width: 100%;
+    background-color: $color-table;
+    border-radius: 10px;
+    overflow:hidden !important;
+}
+
+.mat-header-cell, .mat-cell {
+    font-family: $font-1;
+    text-align: center !important;
+    color: $color-4;
+}
+
+.mat-sort-header-container {
+    font-weight: bold;
+    font-size: 15px;
+    justify-content: center
+}
+
+.mat-paginator, .mat-select-arrow, .mat-select-value {
+    background: none;
+    color: $color-6 !important;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: $color-6;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: $color-1;
+}
+
+.mat-icon-button.mat-button-disabled.mat-button-disabled {
+    color: $color-table;
+}
+
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';

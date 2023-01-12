@@ -9,6 +9,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +23,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './home-page/home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { ListEventComponent } from './event/list-event/list-event.component';
+import { CreateEventComponent } from './event/create-event/create-event.component';
+import { ListUserComponent } from './user/list-user/list-user.component';
 
 
 @NgModule({
@@ -28,7 +34,10 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     LoginComponent,
     HomeComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    ListEventComponent,
+    CreateEventComponent,
+    ListUserComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +51,10 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     HttpClientModule,
     MatSnackBarModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }

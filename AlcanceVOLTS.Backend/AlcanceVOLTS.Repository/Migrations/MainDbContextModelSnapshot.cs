@@ -26,6 +26,51 @@ namespace AlcanceVOLTS.Repository.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("AlcanceVOLTS.Domain.Models.Event", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Button")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FinalDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("Frequency")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("InitialDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Observation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Recurrent")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Snack")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Event");
+                });
+
             modelBuilder.Entity("AlcanceVOLTS.Domain.Models.User", b =>
                 {
                     b.Property<Guid>("Id")

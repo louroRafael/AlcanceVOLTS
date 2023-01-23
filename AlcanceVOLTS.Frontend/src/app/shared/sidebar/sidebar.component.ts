@@ -15,6 +15,7 @@ export class SidebarComponent {
   toggleSideBar() {
     this.sidebar.toggle();
     document.getElementById('page')?.classList.toggle('page-sidebar');
+    document.getElementById('sidebar')?.classList.toggle('show-sidebar');
   }
 
 }

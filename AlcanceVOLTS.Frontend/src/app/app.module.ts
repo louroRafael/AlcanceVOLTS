@@ -12,6 +12,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,9 +28,8 @@ import { HomeComponent } from './home-page/home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { ListEventComponent } from './event/list-event/list-event.component';
-import { CreateEventComponent } from './event/create-event/create-event.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
-
+import { EventComponent } from './event/event/event.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +39,8 @@ import { ListUserComponent } from './user/list-user/list-user.component';
     HeaderComponent,
     SidebarComponent,
     ListEventComponent,
-    CreateEventComponent,
-    ListUserComponent
+    ListUserComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
@@ -54,10 +57,16 @@ import { ListUserComponent } from './user/list-user/list-user.component';
     MatSidenavModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSlideToggleModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
+    MatDatepickerModule
   ],
   bootstrap: [AppComponent]
 })

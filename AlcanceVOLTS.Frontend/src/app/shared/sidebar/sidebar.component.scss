@@ -1,7 +1,7 @@
 @import "../../../variables";
 
 .sidebar-container {
-    width: $sidebar-width;
+    width: 0;
     height: calc(100vh - $header-height);
     position: fixed;
     top: $header-height;
@@ -10,6 +10,10 @@
     .example-sidenav {
         padding: 20px;
     }
+}
+
+.show-sidebar {
+    width: $sidebar-width;
 }
 
 .sidebar-nav {

@@ -37,7 +37,6 @@ export class ListUserComponent implements OnInit {
 
   loadElements() {
     this.userService.list(this.filter).subscribe(r => {
-      console.log(r)
       this.dataSource = new MatTableDataSource(r);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

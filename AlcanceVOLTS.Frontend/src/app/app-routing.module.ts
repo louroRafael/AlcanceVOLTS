@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateEventComponent } from './event/create-event/create-event.component';
+import { EventComponent } from './event/event/event.component';
 import { ListEventComponent } from './event/list-event/list-event.component';
 import { HomeComponent } from './home-page/home/home.component';
 import { LoginComponent } from './home-page/login/login.component';
@@ -17,7 +17,7 @@ const routes: Routes = [
 
   // Event
   { path: 'event/list', component: ListEventComponent },
-  { path: 'event/new', component: CreateEventComponent }
+  { path: 'event/new', component: EventComponent }
 ];
 
 @NgModule({

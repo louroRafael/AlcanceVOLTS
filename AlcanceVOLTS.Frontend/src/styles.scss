@@ -18,7 +18,7 @@ body {
     height: calc(100vh - $header-height);
     position: fixed;
     top: $header-height;
-    padding: 20px 30px;
+    padding: 35px;
     transition: all 0.3s;
 }
 
@@ -56,6 +56,7 @@ body {
         border-radius: 50px;
         border: none;
         padding: 10px;
+        margin: 0 5px;
         height: 50px;
         transition: all 0.3s;
 
@@ -65,7 +66,21 @@ body {
     }
     
     .btn-primary {
+        background-color: $light-1;
+    }
+
+    .btn-secondary {
+        background-color: $color-6;
+    }
+
+    .btn-primary:hover {
         background-color: $color-1;
+        color: $color-2;
+    }
+
+    .btn-primary.disabled, .btn-primary:disabled {
+        background-color: $color-7;
+        color: $color-3;
     }
 }
 
@@ -80,11 +95,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .mat-form-field {
     width: 100%;
+    height: 80px;
     margin: 5px 0;
 }
 
 .mat-form-field-label {
     font-family: $font-1 !important;
+    color: $color-6;
+    left: 44px !important;
 }
 
 .mat-form-field.mat-focused {
@@ -107,9 +125,129 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+input.mat-input-element {
+    width: calc(100% - 50px);
+}
+
 .mat-input-element {
     caret-color: $color-1;
 }
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+    display: flex;
+    justify-content: center;
+
+    button:focus {
+        outline: none;
+    }
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: $color-6;
+}
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+    color: $color-1;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    border-radius: 50px;
+    background-color: $color-input-background;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-start {
+    min-width: 50px !important;
+    border-radius: 50px 0 0 50px !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-end {
+    border-radius: 0 50px 50px 0 !important;
+}
+
+textarea.mat-input-element {
+    margin: 0 15px !important;
+}
+
+.mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline, .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-label {
+    color: $color-6;
+}
+
+.mat-date-range-input-inner[disabled], .mat-form-field-disabled .mat-date-range-input-separator {
+    color: $color-6;
+}
+
+.mat-date-range-input {
+    margin-left: 25px;
+}
+
+.mat-calendar-body-selected {
+    font-weight: bold;
+    background-color: $color-1;
+    color: $color-6;
+}
+
+.mat-calendar-body-today.mat-calendar-body-selected {
+    box-shadow: inset 0 0 0 1px $color-6;
+}
+
+.mat-calendar-body-in-range::before {
+    background-color: $color-1;
+    opacity: 0.2;
+}
+
+.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+    background-color: $color-1 !important;
+    color: $color-2;
+    opacity: 0.2;
+}
+
+.mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+    background: none !important;
+}
+
+.mat-datepicker-toggle {
+    .mat-icon-button {
+        color: $color-6;
+        width: 10px !important;
+        height: 10px !important;
+        line-height: 10px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-right: 20px;
+
+        svg {
+            height: 30px;
+        }
+
+        :focus {
+            outline: none !important;
+        }
+    }
+}
+
+.mat-checkbox-inner-container { 
+    height: 30px !important;
+    width: 30px !important;
+}
+
+.mat-checkbox-layout .mat-checkbox-label {
+    line-height: 30px;
+}
+
+.mat-checkbox-frame {
+    border-color: $color-6;
+    border-width: 1px !important;
+    border-radius: 6px !important;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: $color-1;
+    border-color: $color-1;
+    border-radius: 5px;
+}
+
+
 //--------------------- Snackbars ---------------------
 
 .error-snackbar {

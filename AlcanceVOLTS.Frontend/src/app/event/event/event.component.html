@@ -18,24 +18,6 @@
                             </mat-error>
                         </mat-form-field>
                     </div>
-                    <!-- <div class="col-4">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Início</mat-label>
-                            <input type="date" matInput [formControl]="initialDateFormControl">
-                            <mat-error *ngIf="initialDateFormControl.hasError('required')">
-                                Data de início é <strong>obrigatório</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-4">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Fim</mat-label>
-                            <input type="date" matInput [formControl]="finalDateFormControl">
-                            <mat-error *ngIf="finalDateFormControl.hasError('required')">
-                                Data de fim é <strong>obrigatório</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </div> -->
                     <div class="col-6">
                         <mat-form-field appearance="outline">
                             <mat-label>Período</mat-label>
@@ -67,7 +49,14 @@
         </div>
         <div class="container-buttons-footer">
             <button class="btn btn-secondary" routerLink="/event/list/">Voltar</button>
-            <button class="btn btn-primary" type="submit" [disabled]="!this.form.valid">Criar</button>
+            <button class="btn btn-primary" type="submit" [disabled]="!this.form.valid">{{isNew ? "Criar" : "Salvar"}}</button>
         </div>
     </form>
+
+    <mat-tab-group mat-stretch-tabs="true">
+        <mat-tab label="Geral"> Voluntários Evento </mat-tab>
+        <mat-tab label="27/01"> Voluntários Dia 1 </mat-tab>
+        <mat-tab label="28/01"> Voluntários Dia 2 </mat-tab>
+        <mat-tab label="29/01"> Voluntários Dia 3 </mat-tab>
+    </mat-tab-group>
 </div>

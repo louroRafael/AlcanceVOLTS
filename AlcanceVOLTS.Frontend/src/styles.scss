@@ -66,7 +66,7 @@ body {
     }
     
     .btn-primary {
-        background-color: $light-1;
+        background-color: $color-1;
     }
 
     .btn-secondary {
@@ -74,7 +74,7 @@ body {
     }
 
     .btn-primary:hover {
-        background-color: $color-1;
+        background-color: $light-1;
         color: $color-2;
     }
 
@@ -247,6 +247,41 @@ textarea.mat-input-element {
     border-radius: 5px;
 }
 
+button.mat-menu-item {
+    outline: none !important;
+}
+
+.mat-menu-item {
+    font-family: $font-1;
+    text-transform: uppercase;
+}
+
+.mat-menu-item i {
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+//--------------------- Tabs ---------------------
+
+.mat-tab-label, .mat-tab-link {
+    font-size: 16px;
+    font-family: $font-1;
+    font-weight: bold;
+    color: $color-6;
+}
+
+.mat-ripple {
+    transition: all 0.3s;
+}
+
+.mat-ripple:hover {
+    background-color: $transparent-6;
+    border-radius: 15px 15px 0 0;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: $color-1;
+}
 
 //--------------------- Snackbars ---------------------
 
@@ -285,9 +320,12 @@ textarea.mat-input-element {
     color: $color-4;
 }
 
-.mat-sort-header-container {
+.mat-header-cell {
     font-weight: bold;
     font-size: 15px;
+}
+
+.mat-sort-header-container {
     justify-content: center
 }
 
@@ -308,6 +346,13 @@ textarea.mat-input-element {
     color: $color-table;
 }
 
+.mat-sort-header-arrow {
+    color: $color-6;
+}
+
+.table-actions {
+    cursor: pointer;
+}
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap';

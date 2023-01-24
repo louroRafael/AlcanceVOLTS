@@ -19,12 +19,19 @@ namespace AlcanceVOLTS.API.Controllers
             _eventService = eventService;
         }
 
-        [AllowAnonymous]
+        [BearerAuthorize]
         [HttpPost]
         public async Task<IActionResult> CreateOrUpdate([FromBody] RegisterEventDTO eventModel) 
         {
             await _eventService.SaveAsync(eventModel);
             return ResponseOK();
+        }
+
+        [BearerAuthorize]
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(string id)
+        {
+            return ResponseOK(await _eventService.GetAsync(Guid.Parse(id)));
         }
 
         [BearerAuthorize]

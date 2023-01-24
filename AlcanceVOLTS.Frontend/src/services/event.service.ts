@@ -20,6 +20,10 @@ export class EventService extends HttpService {
     return this.post<any>(this.ENDPOINT, event);
   }
 
+  getById(id: string){
+		return this.get<Event>(this.ENDPOINT + id);
+	}
+
   list(filter: Filter) {
 		return this.post<Event[]>(this.ENDPOINT + 'list', filter); 
 	}

@@ -39,6 +39,13 @@ export class EventComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(!this.isNew) {
+      this.eventService.getById(this.id).subscribe(r => {
+        this.form.patchValue(r);
+      });
+
+      this.form.addControl('id',new FormControl(this.id));
+    }
   }
 
   createForm() {
@@ -63,7 +70,7 @@ export class EventComponent implements OnInit {
     const event = this.form.getRawValue();
     
     this.eventService.save(event).subscribe(r => {
-      this.router.navigate(['/user/list']);
+      this.router.navigate(['/event/list']);
     });
   }
 }

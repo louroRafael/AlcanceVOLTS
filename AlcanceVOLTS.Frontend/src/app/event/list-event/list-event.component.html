@@ -4,6 +4,80 @@
             <h2>Listar <span>Eventos</span></h2>
         </div>
     </div>
+
+    <div class="table-container">
+        <table class="table-striped" [dataSource]="dataSource" mat-table matSort>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>NOME</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.name }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="observation">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>OBSERVAÇÕES</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.observation }}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="initialDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>INÍCIO</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.initialDate }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="finalDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>FIM</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.finalDate }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="snack">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>LANCHE</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.snack }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="button">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>BÓTON</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.button }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>STATUS</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ getEventStatusLabel(element.status) }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>AÇÕES</th>
+                <td mat-cell *matCellDef="let element">
+                    <i class="bi bi-three-dots nav-icon table-actions" (click)="$event.stopPropagation()" [matMenuTriggerFor]="menu"></i>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item routerLink="/event/details/{{element.id}}">
+                            <i class="bi bi-eye"></i>
+                            <span>Detalhes</span>
+                        </button>
+                    </mat-menu>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+        <mat-paginator  [pageSize]="10"
+                    [pageSizeOptions] = "[10, 20, 30, dataSource.data.length]"
+                    showFirstLastButtons> 
+        </mat-paginator>
+    </div>
+
     <div class="container-buttons-footer">
         <button class="btn btn-primary" routerLink="/event/new/">
           <span>Novo</span>

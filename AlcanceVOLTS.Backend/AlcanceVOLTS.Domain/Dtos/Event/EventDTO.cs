@@ -16,6 +16,7 @@ namespace AlcanceVOLTS.Domain.Dtos.Event
 
         public EventDTO(Models.Event eventModel) 
         {
+            Id = eventModel.Id.ToString();
             Name = eventModel.Name;
             Observation = eventModel.Observation ?? "";
             InitialDate = eventModel.InitialDate.ToString("dd/MM/yyyy");
@@ -27,6 +28,7 @@ namespace AlcanceVOLTS.Domain.Dtos.Event
             Status = eventModel.Status;
         }
 
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Observation { get; set; }
         public string InitialDate { get; set; }

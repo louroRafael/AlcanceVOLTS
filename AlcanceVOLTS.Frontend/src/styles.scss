@@ -354,5 +354,49 @@ button.mat-menu-item {
     cursor: pointer;
 }
 
+//--------------------- Swal Alert ---------------------
+
+.swal2-popup {
+    background-color: $color-6 !important;
+    color: $color-3 !important;
+    border-radius: 15px !important;
+
+    .swal2-title {
+        font-family: $font-2 !important;
+        font-weight: lighter !important;
+        text-transform: uppercase !important;
+        color: $color-1 !important;
+    }
+
+    .loading-gif {
+        height: 150px;
+        margin-bottom: 15px;
+    }
+
+    .progress-bar-container {
+        margin-top: 20px;
+        height: 12px;
+        width: 100%;
+        background-color: $color-2;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        border-radius: 0 0 10px 10px;
+    }
+
+    .progress-bar {
+        position: absolute;
+        height: 100%;
+        background-color: $color-1;
+        animation: progress-animation 3s infinite;
+        border-radius: 0 0 10px 10px;
+    }
+
+    @keyframes progress-animation{
+        0% { width: 0%; } 
+        100% { width: 100%}
+    }
+}
+
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

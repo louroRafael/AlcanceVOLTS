@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { EventStatus, EventStatusLabelMapping } from 'src/enums/event-status';
 import { Filter } from 'src/models/common/filter';
 import { Event } from 'src/models/event/event';
+import { AlertService } from 'src/services/alert.service';
 import { EventService } from 'src/services/event.service';
 
 @Component({
@@ -32,7 +33,8 @@ export class ListEventComponent implements OnInit {
   ];
 
   constructor(
-    private eventService: EventService
+    private eventService: EventService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit(): void {
@@ -40,10 +42,14 @@ export class ListEventComponent implements OnInit {
   }
 
   loadElements() {
+    this.alertService.showLoading();
+
     this.eventService.list(this.filter).subscribe(r => {
       this.dataSource = new MatTableDataSource(r);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+
+      this.alertService.hideLoading();
     });
   }
 

@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { UserType, UserTypeLabelMapping } from 'src/enums/user-type';
 import { Filter } from 'src/models/common/filter';
 import { User } from 'src/models/user/user';
+import { AlertService } from 'src/services/alert.service';
 import { UserService } from 'src/services/user.service';
 
 @Component({
@@ -28,7 +29,8 @@ export class ListUserComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit(): void {
@@ -36,10 +38,14 @@ export class ListUserComponent implements OnInit {
   }
 
   loadElements() {
+    this.alertService.showLoading();
+
     this.userService.list(this.filter).subscribe(r => {
       this.dataSource = new MatTableDataSource(r);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+
+      this.alertService.hideLoading();
     });
   }
 

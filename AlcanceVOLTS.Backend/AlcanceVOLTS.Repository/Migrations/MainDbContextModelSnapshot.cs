@@ -26,6 +26,27 @@ namespace AlcanceVOLTS.Repository.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("AlcanceVOLTS.Domain.Models.Area", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Area");
+                });
+
             modelBuilder.Entity("AlcanceVOLTS.Domain.Models.Event", b =>
                 {
                     b.Property<Guid>("Id")
@@ -57,9 +78,6 @@ namespace AlcanceVOLTS.Repository.Migrations
                     b.Property<bool>("Recurrent")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("Snack")
-                        .HasColumnType("bit");
-
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -69,6 +87,62 @@ namespace AlcanceVOLTS.Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Event");
+                });
+
+            modelBuilder.Entity("AlcanceVOLTS.Domain.Models.Team", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Dynamic")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("EventId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventId");
+
+                    b.ToTable("Team");
+                });
+
+            modelBuilder.Entity("AlcanceVOLTS.Domain.Models.TeamArea", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AreaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("TeamId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AreaId");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("TeamArea");
                 });
 
             modelBuilder.Entity("AlcanceVOLTS.Domain.Models.User", b =>
@@ -104,6 +178,46 @@ namespace AlcanceVOLTS.Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("User");
+                });
+
+            modelBuilder.Entity("AlcanceVOLTS.Domain.Models.Team", b =>
+                {
+                    b.HasOne("AlcanceVOLTS.Domain.Models.Event", "Event")
+                        .WithMany("Teams")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Event");
+                });
+
+            modelBuilder.Entity("AlcanceVOLTS.Domain.Models.TeamArea", b =>
+                {
+                    b.HasOne("AlcanceVOLTS.Domain.Models.Area", "Area")
+                        .WithMany()
+                        .HasForeignKey("AreaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AlcanceVOLTS.Domain.Models.Team", "Team")
+                        .WithMany("TeamAreas")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Area");
+
+                    b.Navigation("Team");
+                });
+
+            modelBuilder.Entity("AlcanceVOLTS.Domain.Models.Event", b =>
+                {
+                    b.Navigation("Teams");
+                });
+
+            modelBuilder.Entity("AlcanceVOLTS.Domain.Models.Team", b =>
+                {
+                    b.Navigation("TeamAreas");
                 });
 #pragma warning restore 612, 618
         }

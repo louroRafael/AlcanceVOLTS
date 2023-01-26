@@ -15,11 +15,11 @@ namespace AlcanceVOLTS.Domain.Models
         public string? Observation { get; set; }
         public DateTime InitialDate { get; set; }
         public DateTime FinalDate { get; set; }
-        public bool Snack { get; set; }
         public bool Button { get; set; }
         public bool Recurrent { get; set; }
         public EventFrequency? Frequency { get; set; }
         public EventStatus Status { get; set; }
+        public virtual IEnumerable<Team> Teams { get; set; }
 
         public static implicit operator Event(RegisterEventDTO eventDTO)
         {
@@ -31,7 +31,6 @@ namespace AlcanceVOLTS.Domain.Models
             eventModel.Observation = eventDTO.Observation;
             eventModel.InitialDate = eventDTO.InitialDate;
             eventModel.FinalDate = eventDTO.FinalDate;
-            eventModel.Snack = eventDTO.Snack;
             eventModel.Button = eventDTO.Button;
             eventModel.Recurrent = eventDTO.Recurrent;
             eventModel.Frequency = eventDTO.Frequency;

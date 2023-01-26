@@ -1,6 +1,5 @@
 ﻿using AlcanceVOLTS.Domain.Dtos.Common;
 using AlcanceVOLTS.Domain.Dtos.Event;
-using AlcanceVOLTS.Domain.Dtos.User;
 using AlcanceVOLTS.Domain.Interfaces.Common;
 using AlcanceVOLTS.Domain.Models;
 

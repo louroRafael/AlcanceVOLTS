@@ -7,7 +7,6 @@ export class Event {
     public observation: string;
     public initialDate: string;
     public finalDateFormControl: string;
-    public snackFormControl: string;
     public buttonFormControl: string;
     public recurrentFormControl: string;
     public frequencyFormControl: EventFrequency;

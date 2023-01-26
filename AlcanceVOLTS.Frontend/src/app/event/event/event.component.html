@@ -1,62 +1,19 @@
 <div id="page" class="page">
     <div class="page-header">
         <div class="page-title">
-            <h2>Criar <span>Evento</span></h2>
+            <h2 *ngIf="isNew">Criar <span>Evento</span></h2>
+            <h2 *ngIf="!isNew">Detalhes do <span>Evento</span></h2>
         </div>
     </div>
 
-    <form [formGroup]="form" (submit)="save()">
-        <div class="row">
-            <div class="col-8">
-                <div class="row">
-                    <div class="col-6">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Nome</mat-label>
-                            <input type="text" matInput [formControl]="nameFormControl">
-                            <mat-error *ngIf="nameFormControl.hasError('required')">
-                                Nome é <strong>obrigatório</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-6">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Período</mat-label>
-                            <mat-date-range-input [rangePicker]="picker">
-                            <input matStartDate placeholder="Start date" [formControl]="initialDateFormControl">
-                            <input matEndDate [formControl]="finalDateFormControl">
-                            </mat-date-range-input>
-                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-date-range-picker #picker disabled="false"></mat-date-range-picker>
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Observação</mat-label>
-                            <textarea matInput [formControl]="observationFormControl" rows="1"></textarea>
-                        </mat-form-field>
-                    </div>
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="check-options">
-                    <mat-checkbox [formControl]="recurrentFormControl">Evento Recorrente</mat-checkbox>
-                    <mat-checkbox [formControl]="snackFormControl">Lanche</mat-checkbox>
-                    <mat-checkbox [formControl]="buttonFormControl">Bóton</mat-checkbox>
-                </div>
-            </div>
-        </div>
-        <div class="container-buttons-footer">
-            <button class="btn btn-secondary" routerLink="/event/list/">Voltar</button>
-            <button class="btn btn-primary" type="submit" [disabled]="!this.form.valid">{{isNew ? "Criar" : "Salvar"}}</button>
-        </div>
-    </form>
+    <app-create-event *ngIf="isNew" [isNew]="isNew" [id]="id"></app-create-event>
 
-    <mat-tab-group mat-align-tabs="start">
-        <mat-tab label="Geral"> Voluntários Evento </mat-tab>
-        <mat-tab label="27/01"> Voluntários Dia 1 </mat-tab>
-        <mat-tab label="28/01"> Voluntários Dia 2 </mat-tab>
-        <mat-tab label="29/01"> Voluntários Dia 3 </mat-tab>
+    <mat-tab-group *ngIf="!isNew" mat-align-tabs="start">
+        <mat-tab label="Informações">
+            <app-create-event [isNew]="isNew" [id]="id"></app-create-event>
+        </mat-tab>
+        <mat-tab label="Geral">  </mat-tab>
+        <mat-tab label="Equipes">  </mat-tab>
+        <mat-tab label="Períodos"> Voluntários Dia 2 </mat-tab>
     </mat-tab-group>
 </div>

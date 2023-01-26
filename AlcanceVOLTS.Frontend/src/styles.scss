@@ -37,13 +37,15 @@ body {
 }
 
 .container-buttons-footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
     width: 100%;
     margin-left: -30px;
     padding: 20px;
+    height: 120px;
 
     button {
         display: flex;
@@ -81,6 +83,26 @@ body {
     .btn-primary.disabled, .btn-primary:disabled {
         background-color: $color-7;
         color: $color-3;
+    }
+
+    .mat-form-field-wrapper {
+        padding: 0;
+    }
+
+    .mat-form-field {
+        width: 30%;
+        height: 58px;
+        margin: 0;
+    }
+
+    .mat-error {
+        text-align: right;
+        padding-right: 25px;
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-subscript-wrapper {
+        position: relative;
+        top: -80px;
     }
 }
 
@@ -270,6 +292,14 @@ button.mat-menu-item {
     color: $color-6;
 }
 
+.mat-tab-group {
+    height: 100%;
+}
+
+.mat-tab-body-wrapper {
+    height: 100%;
+}
+
 .mat-ripple {
     transition: all 0.3s;
 }
@@ -281,6 +311,11 @@ button.mat-menu-item {
 
 .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
     background-color: $color-1;
+}
+
+.mat-tab-body-content {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
 }
 
 //--------------------- Snackbars ---------------------

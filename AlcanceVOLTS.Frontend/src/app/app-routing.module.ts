@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ListAreaComponent } from './area/list-area/list-area.component';
 import { EventComponent } from './event/event/event.component';
 import { ListEventComponent } from './event/list-event/list-event.component';
 import { HomeComponent } from './home-page/home/home.component';
@@ -18,7 +19,10 @@ const routes: Routes = [
   // Event
   { path: 'event/list', component: ListEventComponent },
   { path: 'event/new', component: EventComponent },
-  { path: 'event/details/:id', component: EventComponent }
+  { path: 'event/details/:id', component: EventComponent },
+
+  // Area
+  { path: 'area/list', component: ListAreaComponent}
 ];
 
 @NgModule({

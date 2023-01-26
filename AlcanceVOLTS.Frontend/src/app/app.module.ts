@@ -32,6 +32,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { ListEventComponent } from './event/list-event/list-event.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
 import { EventComponent } from './event/event/event.component';
+import { CreateEventComponent } from './event/create-event/create-event.component';
+import { ListAreaComponent } from './area/list-area/list-area.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { EventComponent } from './event/event/event.component';
     SidebarComponent,
     ListEventComponent,
     ListUserComponent,
-    EventComponent
+    EventComponent,
+    CreateEventComponent,
+    ListAreaComponent
   ],
   imports: [
     BrowserModule,

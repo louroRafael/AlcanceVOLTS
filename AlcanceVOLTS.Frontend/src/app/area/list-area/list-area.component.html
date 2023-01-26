@@ -1,0 +1,58 @@
+<div id="page" class="page">
+    <div class="page-header">
+        <div class="page-title">
+            <h2>Listar <span>Áreas</span></h2>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table class="table-striped" [dataSource]="dataSource" mat-table matSort>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>NOME</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.name }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>AÇÕES</th>
+                <td mat-cell *matCellDef="let element">
+                    <i class="bi bi-three-dots nav-icon table-actions" (click)="$event.stopPropagation()" [matMenuTriggerFor]="menu"></i>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="deleteArea(element.id)">
+                            <i class="bi bi-trash3"></i>
+                            <span>Deletar</span>
+                        </button>
+                    </mat-menu>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+        <mat-paginator  [pageSize]="10"
+                        [pageSizeOptions] = "[10, 20, 30, dataSource.data.length]"
+                        showFirstLastButtons> 
+        </mat-paginator>
+    </div>
+
+    <div class="container-buttons-footer">
+        <button *ngIf="!addArea" class="btn btn-primary" (click)="addArea = true">
+          <span>Novo</span>
+          <i class="bi bi-plus"></i>
+        </button>
+
+        <mat-form-field *ngIf="addArea" appearance="outline">
+            <mat-error *ngIf="nameFormControl.hasError('required')">
+                Nome da Área é <strong>obrigatório</strong>
+            </mat-error>
+            <mat-label>Nome da Área</mat-label>
+            <input type="text" matInput [formControl]="nameFormControl">
+        </mat-form-field>
+        <button *ngIf="addArea" class="btn btn-primary" (click)="createArea()" [disabled]="nameFormControl.hasError('required')">
+            <span>Adicionar</span>
+            <i class="bi bi-plus"></i>
+        </button>
+    </div>
+</div>

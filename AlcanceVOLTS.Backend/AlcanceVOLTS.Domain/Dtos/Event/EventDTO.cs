@@ -21,7 +21,6 @@ namespace AlcanceVOLTS.Domain.Dtos.Event
             Observation = eventModel.Observation ?? "";
             InitialDate = eventModel.InitialDate.ToString("dd/MM/yyyy");
             FinalDate = eventModel.FinalDate.ToString("dd/MM/yyyy");
-            Snack = eventModel.Snack ? "Sim" : "Não";
             Button = eventModel.Button ? "Sim" : "Não";
             Recurrent = eventModel.Recurrent ? "Sim" : "Não";
             Frequency = eventModel.Frequency;
@@ -33,7 +32,6 @@ namespace AlcanceVOLTS.Domain.Dtos.Event
         public string Observation { get; set; }
         public string InitialDate { get; set; }
         public string FinalDate { get; set; }
-        public string Snack { get; set; }
         public string Button { get; set; }
         public string Recurrent { get; set; }
         public EventFrequency? Frequency { get; set; }

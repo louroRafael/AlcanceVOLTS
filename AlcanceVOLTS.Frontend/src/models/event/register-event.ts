@@ -7,7 +7,6 @@ export class RegisterEvent {
     public observation: string;
     public initialDate: Date;
     public finalDateFormControl: Date;
-    public snackFormControl: boolean;
     public buttonFormControl: boolean;
     public recurrentFormControl: boolean;
     public frequencyFormControl: EventFrequency;

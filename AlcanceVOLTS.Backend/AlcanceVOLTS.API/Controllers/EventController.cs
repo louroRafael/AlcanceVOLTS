@@ -45,10 +45,10 @@ namespace AlcanceVOLTS.API.Controllers
         }
 
         [BearerAuthorize]
-        [HttpPut("import-volunteers")]
-        public async Task<IActionResult> ImportVolunteers([FromBody] List<VolunteerDTO> volunteers)
+        [HttpPut("import-volunteers/{id}")]
+        public async Task<IActionResult> ImportVolunteers([FromBody] List<VolunteerDTO> volunteers, string id)
         {
-            await _userService.ImportVolunteers(volunteers);
+            await _userService.ImportVolunteers(volunteers, Guid.Parse(id));
             return ResponseOK();
         }
     }

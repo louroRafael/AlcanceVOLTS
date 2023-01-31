@@ -11,13 +11,20 @@ namespace AlcanceVOLTS.Domain.Models
 {
     public class User : EntityBase
     {
+        public User()
+        {
+            EventUsers = new List<EventUser>();
+        }
+
         public User(string name, string login)
         {
-            Name = name;
+            Name = name.ToTitleCase();
             Login = login;
             Password = ("volts").ToMD5();
             Active = true;
             UserType = UserType.Voluntario;
+
+            EventUsers = new List<EventUser>();
         }
 
         public string Name { get; set; }

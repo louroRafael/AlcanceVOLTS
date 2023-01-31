@@ -1,18 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { Volunteer } from 'src/models/user/volunteer';
 import { AlertService } from 'src/services/alert.service';
 import { EventService } from 'src/services/event.service';
 import * as XLSX from 'xlsx';
 
 @Component({
-  selector: 'app-event-general',
-  templateUrl: './event-general.component.html',
-  styleUrls: ['./event-general.component.scss']
+  selector: 'app-event-volunteers',
+  templateUrl: './event-volunteers.component.html',
+  styleUrls: ['./event-volunteers.component.scss']
 })
-export class EventGeneralComponent implements OnInit {
+export class EventVolunteersComponent implements OnInit {
 
+  @Input() eventId: string;
   public volunteers: Volunteer[] = [];
+
+  dataSource = new MatTableDataSource<Volunteer>();
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  displayedColumns: string[] = [
+    'name',
+    'email'
+  ];
 
   constructor(
     private eventService: EventService,
@@ -21,6 +33,11 @@ export class EventGeneralComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadElements();
+  }
+
+  loadElements() {
+    this.alertService.showLoading();
   }
 
   importXlsx(event) {
@@ -51,7 +68,7 @@ export class EventGeneralComponent implements OnInit {
             return volunteer;
           });
 
-          this.eventService.importVolunteers(this.volunteers).subscribe(r => {
+          this.eventService.importVolunteers(this.volunteers, this.eventId).subscribe(r => {
             this.snackBar.open("Prontinho! Voluntários importados com sucesso!", "OK", {
               duration: 3000,
               panelClass: ['success-snackbar']

@@ -29,7 +29,7 @@ export class EventService extends HttpService {
 		return this.post<Event[]>(this.ENDPOINT + 'list', filter); 
 	}
 
-  importVolunteers(volunteers: Volunteer[]) {
-    return this.put<any>(this.ENDPOINT + 'import-volunteers', volunteers);
+  importVolunteers(volunteers: Volunteer[], id: string) {
+    return this.put<any>(this.ENDPOINT + 'import-volunteers/' + id, volunteers);
   }
 }

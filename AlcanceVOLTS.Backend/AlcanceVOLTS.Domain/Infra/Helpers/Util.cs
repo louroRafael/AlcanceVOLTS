@@ -1,6 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Reflection;
 using System.Text;
+using System.Linq;
 
 namespace AlcanceVOLTS.Domain.Infra.Helpers
 {
@@ -38,5 +39,23 @@ namespace AlcanceVOLTS.Domain.Infra.Helpers
             .ToList();
 
         #endregion
+
+        #region String
+
+        public static string ToTitleCase(this string input)
+        {
+            var words = input.ToLower().Split(" ");
+
+            for(var i = 0; i < words.Length; i++)
+            {
+                var word = words[i];
+                var titleCaseWord = word[0].ToString().ToUpper() + word.Substring(1);
+                words[i] = titleCaseWord;
+            }
+
+            return String.Join(" ", words);
+        }
+
+        #endregion String
     }
 }

@@ -11,13 +11,13 @@ namespace AlcanceVOLTS.Domain.Services
     public class UserService : CrudServiceBase<User>, IUserService
     {
         private new readonly IUserRepository _repository;
-        private readonly IEventUserRepository _eventUserRepository;
+        private readonly IEventService _eventService;
 
         public UserService(IUserRepository repository, 
-            IEventUserRepository eventUserRepository) : base(repository)
+            IEventService eventService) : base(repository)
         {
             _repository = repository;
-            _eventUserRepository = eventUserRepository;
+            _eventService = eventService;
         }
 
         public async Task<User> UserAuthenticate(string email, string password) => await _repository.FirstOrDefaultAsync(u => u.Login.Equals(email) && !string.IsNullOrEmpty(password) && u.Password.Equals(password.ToMD5()));
@@ -26,21 +26,22 @@ namespace AlcanceVOLTS.Domain.Services
 
         public async Task<List<UserDTO>> GetAllByFilter(FilterDTO filter) => await _repository.GetAllByFilter(filter);
 
-        public async Task ImportVolunteers(List<VolunteerDTO> volunteers)
+        public async Task ImportVolunteers(List<VolunteerDTO> volunteers, Guid eventId)
         {
             foreach (var volunteer in volunteers)
             {
                 var user = await GetUserByEmail(volunteer.Email);
 
-                if (user != null)
-                {
-
-                }
-                else
+                if (user == null)
                 {
                     user = new User(volunteer.Name, volunteer.Email);
                     await SaveAsync(user);
                 }
+
+                var eventUser = new EventUser(eventId, user.Id);
+                user.EventUsers.Add(eventUser);
+
+                await SaveAsync(user);
             }
         }
     }

@@ -21,13 +21,17 @@ export class EventService extends HttpService {
     return this.post<any>(this.ENDPOINT, event);
   }
 
-  getById(id: string){
+  getById(id: string) {
 		return this.get<Event>(this.ENDPOINT + id);
 	}
 
   list(filter: Filter) {
 		return this.post<Event[]>(this.ENDPOINT + 'list', filter); 
 	}
+
+  listVolunteers(id: string) {
+    return this.get<Volunteer[]>(this.ENDPOINT + 'list-volunteers/' + id);
+  }
 
   importVolunteers(volunteers: Volunteer[], id: string) {
     return this.put<any>(this.ENDPOINT + 'import-volunteers/' + id, volunteers);

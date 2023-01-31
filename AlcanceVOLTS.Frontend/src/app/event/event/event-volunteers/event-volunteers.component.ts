@@ -38,6 +38,14 @@ export class EventVolunteersComponent implements OnInit {
 
   loadElements() {
     this.alertService.showLoading();
+
+    this.eventService.listVolunteers(this.eventId).subscribe(r => {
+      this.dataSource = new MatTableDataSource(r);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      
+      this.alertService.hideLoading();
+    });
   }
 
   importXlsx(event) {

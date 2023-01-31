@@ -39,7 +39,7 @@ namespace AlcanceVOLTS.API.Controllers
 
         [BearerAuthorize]
         [HttpPost("list")]
-        public async Task<IActionResult> ListUsers([FromBody] FilterDTO filter)
+        public async Task<IActionResult> ListEvents([FromBody] FilterDTO filter)
         {
             return ResponseOK(await _eventService.GetAllByFilter(filter));
         }
@@ -50,6 +50,13 @@ namespace AlcanceVOLTS.API.Controllers
         {
             await _userService.ImportVolunteers(volunteers, Guid.Parse(id));
             return ResponseOK();
+        }
+
+        [BearerAuthorize]
+        [HttpGet("list-volunteers/{id}")]
+        public async Task<IActionResult> ListVolunteers(string id)
+        {
+            return ResponseOK(await _eventService.GetVolunteersByEvent(Guid.Parse(id)));
         }
     }
 }

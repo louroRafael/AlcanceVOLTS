@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Filter } from 'src/models/common/filter';
 import { Event } from 'src/models/event/event';
 import { RegisterEvent } from 'src/models/event/register-event';
+import { Volunteer } from 'src/models/user/volunteer';
 import { HttpService } from './http.service';
 
 @Injectable({
@@ -27,4 +28,8 @@ export class EventService extends HttpService {
   list(filter: Filter) {
 		return this.post<Event[]>(this.ENDPOINT + 'list', filter); 
 	}
+
+  importVolunteers(volunteers: Volunteer[]) {
+    return this.put<any>(this.ENDPOINT + 'import-volunteers', volunteers);
+  }
 }

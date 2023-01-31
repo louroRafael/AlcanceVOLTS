@@ -26,7 +26,6 @@ export class ListEventComponent implements OnInit {
     'observation',
     'initialDate',
     'finalDate',
-    'snack',
     'button',
     'status',
     'id'

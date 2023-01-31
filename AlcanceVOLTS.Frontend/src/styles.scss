@@ -51,7 +51,7 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 120px;
+        min-width: 120px;
         font-family: $font-1;
         font-weight: bold;
         color: $color-2;
@@ -64,6 +64,7 @@ body {
 
         i {
             font-size: 30px;
+            margin: 5px;
         }
     }
     
@@ -283,6 +284,32 @@ button.mat-menu-item {
     margin-right: 5px;
 }
 
+.input-file-style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 120px;
+    font-family: $font-1;
+    font-weight: bold;
+    color: $color-2;
+    background-color: $color-1;
+    height: 50px;
+    padding: 10px;
+    margin: 0 5px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    i {
+        font-size: 20px;
+        margin: 5px;
+    }
+}
+
+.input-file-style:hover {
+    background-color: $light-1;
+}
+
 //--------------------- Tabs ---------------------
 
 .mat-tab-label, .mat-tab-link {
@@ -325,7 +352,7 @@ button.mat-menu-item {
     color: $color-3;
 }
 
-.alert-snackbar {
+.warning-snackbar {
     background-color: $color-alert;
     color: $color-3;
 }
@@ -338,8 +365,8 @@ button.mat-menu-item {
 //--------------------- Table ---------------------
 
 .table-container {
-    position: relative;
-    top: 100px;
+    opacity: 0.9;
+    height: calc(100% - 120px);
 }
 
 .mat-table {
@@ -387,6 +414,10 @@ button.mat-menu-item {
 
 .table-actions {
     cursor: pointer;
+}
+
+.mat-paginator-page-size-select {
+    height: 50px;
 }
 
 //--------------------- Swal Alert ---------------------

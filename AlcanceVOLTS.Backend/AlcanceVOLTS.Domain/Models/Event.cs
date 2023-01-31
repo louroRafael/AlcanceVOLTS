@@ -19,7 +19,9 @@ namespace AlcanceVOLTS.Domain.Models
         public bool Recurrent { get; set; }
         public EventFrequency? Frequency { get; set; }
         public EventStatus Status { get; set; }
-        public virtual IEnumerable<Team> Teams { get; set; }
+
+        public virtual List<EventUser> EventUsers { get; set; }
+        public virtual List<Team> Teams { get; set; }
 
         public static implicit operator Event(RegisterEventDTO eventDTO)
         {

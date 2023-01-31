@@ -15,5 +15,8 @@ namespace AlcanceVOLTS.Domain.Interfaces.Services
 
         ///<summary> Get List Of Users By Filter </summary>
         Task<List<UserDTO>> GetAllByFilter(FilterDTO filter);
+
+        ///<summary> Import List of Volunteers By Xlsx File </summary>
+        Task ImportVolunteers(List<VolunteerDTO> volunteers);
     }
 }

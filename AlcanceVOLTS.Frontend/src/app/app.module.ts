@@ -18,6 +18,7 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +36,8 @@ import { EventComponent } from './event/event/event.component';
 import { CreateEventComponent } from './event/create-event/create-event.component';
 import { ListAreaComponent } from './area/list-area/list-area.component';
 import { EventVolunteersComponent } from './event/event/event-volunteers/event-volunteers.component';
+import { EventTeamsComponent } from './event/event/event-teams/event-teams.component';
+import { CreateTeamComponent } from './event/event/event-teams/create-team/create-team.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,9 @@ import { EventVolunteersComponent } from './event/event/event-volunteers/event-v
     EventComponent,
     CreateEventComponent,
     ListAreaComponent,
-    EventVolunteersComponent
+    EventVolunteersComponent,
+    EventTeamsComponent,
+    CreateTeamComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +77,7 @@ import { EventVolunteersComponent } from './event/event/event-volunteers/event-v
     MatCheckboxModule,
     MatTabsModule,
     MatProgressBarModule,
+    MatSelectModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

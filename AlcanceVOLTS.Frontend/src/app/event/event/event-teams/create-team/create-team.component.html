@@ -1,0 +1,36 @@
+<div>
+    <h3>Criar <b>Equipe</b></h3>
+</div>
+<form [formGroup]="form" (submit)="save()">
+    <div class="row">
+        <div class="col-8">
+            <mat-form-field appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input type="text" matInput [formControl]="nameFormControl">
+                <mat-error *ngIf="nameFormControl.hasError('required')">
+                    Nome é <strong>obrigatório</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-4">
+            <div class="slide-container">
+                <mat-label>Fixa</mat-label>
+                <mat-slide-toggle [formControl]="dynamicFormControl"></mat-slide-toggle>
+                <mat-label>Dinâmica</mat-label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <mat-form-field appearance="outline">
+                <mat-label>{{form.value.dynamic ? "Áreas" : "Área"}}</mat-label>
+                <mat-select [formControl]="areasFormControl" multiple *ngIf="form.value.dynamic">
+                    <mat-option *ngFor="let area of areasList" [value]="area.id">{{area.name}}</mat-option>
+                </mat-select>
+                <mat-select [formControl]="areasFormControl" *ngIf="!form.value.dynamic">
+                    <mat-option *ngFor="let area of areasList" [value]="area.id">{{area.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</form>

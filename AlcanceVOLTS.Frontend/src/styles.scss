@@ -38,14 +38,13 @@ body {
 
 .container-buttons-footer {
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     width: 100%;
-    margin-left: -30px;
     padding: 20px;
-    height: 120px;
+    height: 100px;
 
     button {
         display: flex;
@@ -115,6 +114,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 //-------------------- Form and Inputs --------------------//
+
+mat-label {
+    font-family: $font-1;
+}
 
 .mat-form-field {
     width: 100%;
@@ -310,6 +313,47 @@ button.mat-menu-item {
     background-color: $light-1;
 }
 
+.mat-primary .mat-pseudo-checkbox-checked, .mat-primary .mat-pseudo-checkbox-indeterminate {
+    background-color: $color-1;
+}
+
+//--------------------- Slide ---------------------
+
+.slide-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+}
+
+.mat-slide-toggle {
+    margin: 0 30px;
+}
+
+.mat-slide-toggle-bar {
+    background-color: $color-7;
+    height: 20px !important;
+    width: 50px !important;
+    border-radius: 10px !important;
+}
+
+.mat-slide-toggle-thumb {
+    height: 25px !important;
+    width: 25px !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background-color: $color-1;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+    background-color: $transparent-1;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb-container {
+    transform: translate3d(25px,0,0) !important;
+}
+
 //--------------------- Tabs ---------------------
 
 .mat-tab-label, .mat-tab-link {
@@ -338,11 +382,6 @@ button.mat-menu-item {
 
 .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
     background-color: $color-1;
-}
-
-.mat-tab-body-content {
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
 }
 
 //--------------------- Snackbars ---------------------
@@ -422,6 +461,32 @@ button.mat-menu-item {
 
 .mat-tab-header {
     margin-bottom: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    max-height: 95%;
+}
+
+thead {
+    padding-right: 13px;
+    flex: 0 0 auto;
+}
+  
+tbody {
+    flex: 1 1 auto;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+  
+tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
 }
 
 //--------------------- Swal Alert ---------------------

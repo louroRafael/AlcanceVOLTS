@@ -21,9 +21,11 @@ namespace AlcanceVOLTS.Repository.Mapping
             entity.Property(x => x.InitialDate).IsRequired();
             entity.Property(x => x.FinalDate).IsRequired();
             entity.Property(x => x.Button).IsRequired();
+            entity.Property(x => x.Tshirt).IsRequired();
             entity.Property(x => x.Recurrent).IsRequired();
             entity.Property(x => x.Frequency);
             entity.Property(x => x.Status).IsRequired();
+            entity.Property(x => x.PeriodsQuantity).IsRequired();
         }
     }
 }

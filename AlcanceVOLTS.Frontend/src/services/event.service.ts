@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Filter } from 'src/models/common/filter';
 import { Event } from 'src/models/event/event';
 import { RegisterEvent } from 'src/models/event/register-event';
+import { RegisterTeam } from 'src/models/event/register-team';
 import { Volunteer } from 'src/models/user/volunteer';
 import { HttpService } from './http.service';
 
@@ -21,8 +22,12 @@ export class EventService extends HttpService {
     return this.post<any>(this.ENDPOINT, event);
   }
 
+  deleteEvent(id: string) {
+    return this.delete<any>(this.ENDPOINT + id);
+  }
+
   getById(id: string) {
-		return this.get<Event>(this.ENDPOINT + id);
+		return this.get<RegisterEvent>(this.ENDPOINT + id);
 	}
 
   list(filter: Filter) {
@@ -35,5 +40,9 @@ export class EventService extends HttpService {
 
   importVolunteers(volunteers: Volunteer[], id: string) {
     return this.put<any>(this.ENDPOINT + 'import-volunteers/' + id, volunteers);
+  }
+
+  saveTeam(team: RegisterTeam) {
+    return this.post<any>(this.ENDPOINT + 'save-team', team);
   }
 }

@@ -39,6 +39,7 @@ body {
 .container-buttons-footer {
     position: absolute;
     bottom: 10px;
+    left: 0;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -62,7 +63,7 @@ body {
         transition: all 0.3s;
 
         i {
-            font-size: 30px;
+            font-size: 20px;
             margin: 5px;
         }
     }
@@ -111,6 +112,12 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: $font-2 !important;
     text-transform: uppercase;
+}
+
+//-------------------- Divider --------------------//
+
+.mat-divider {
+    border-top-color: $color-7;
 }
 
 //-------------------- Form and Inputs --------------------//

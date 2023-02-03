@@ -6,9 +6,8 @@ export class Event {
     public name: string;
     public observation: string;
     public initialDate: string;
-    public finalDateFormControl: string;
-    public buttonFormControl: string;
-    public recurrentFormControl: string;
-    public frequencyFormControl: EventFrequency;
-    public statusFormControl: EventStatus;
+    public finalDate: string;
+    public button: string;
+    public tshirt: string;
+    public status: EventStatus;
 }

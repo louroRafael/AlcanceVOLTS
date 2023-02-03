@@ -19,6 +19,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -77,7 +78,8 @@ import { CreateTeamComponent } from './event/event/event-teams/create-team/creat
     MatCheckboxModule,
     MatTabsModule,
     MatProgressBarModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDividerModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

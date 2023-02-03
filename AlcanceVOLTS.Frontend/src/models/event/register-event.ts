@@ -1,14 +1,15 @@
-import { EventFrequency } from "src/enums/event-frequency";
 import { EventStatus } from "src/enums/event-status";
+import { Period } from "./period";
 
 export class RegisterEvent {
     public id: string;
     public name: string;
     public observation: string;
     public initialDate: Date;
-    public finalDateFormControl: Date;
-    public buttonFormControl: boolean;
-    public recurrentFormControl: boolean;
-    public frequencyFormControl: EventFrequency;
-    public statusFormControl: EventStatus;
+    public finalDate: Date;
+    public button: boolean;
+    public tshirt: boolean;
+    public status: EventStatus;
+    public periodsQuantity: number;
+    public periods: Period[];
 }

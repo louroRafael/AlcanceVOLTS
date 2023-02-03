@@ -4,6 +4,7 @@ using AlcanceVOLTS.Repository.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AlcanceVOLTS.Repository.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    partial class MainDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230203004630_AddEventColumns")]
+    partial class AddEventColumns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -125,38 +128,6 @@ namespace AlcanceVOLTS.Repository.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("EventUser");
-                });
-
-            modelBuilder.Entity("AlcanceVOLTS.Domain.Models.Period", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("EventId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("Snack")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EventId");
-
-                    b.ToTable("Period");
                 });
 
             modelBuilder.Entity("AlcanceVOLTS.Domain.Models.Team", b =>
@@ -275,17 +246,6 @@ namespace AlcanceVOLTS.Repository.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("AlcanceVOLTS.Domain.Models.Period", b =>
-                {
-                    b.HasOne("AlcanceVOLTS.Domain.Models.Event", "Event")
-                        .WithMany("Periods")
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Event");
-                });
-
             modelBuilder.Entity("AlcanceVOLTS.Domain.Models.Team", b =>
                 {
                     b.HasOne("AlcanceVOLTS.Domain.Models.Event", "Event")
@@ -319,8 +279,6 @@ namespace AlcanceVOLTS.Repository.Migrations
             modelBuilder.Entity("AlcanceVOLTS.Domain.Models.Event", b =>
                 {
                     b.Navigation("EventUsers");
-
-                    b.Navigation("Periods");
 
                     b.Navigation("Teams");
                 });

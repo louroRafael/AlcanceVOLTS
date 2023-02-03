@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventTeamsComponent implements OnInit {
 
+  showCreateForm: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  createTeam() {
+    this.showCreateForm = true;
+  }
+
+  cancelCreateTeam() {
+    this.showCreateForm = false;
+  }
 }

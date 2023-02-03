@@ -1,7 +1,9 @@
-<app-create-team></app-create-team>
-<div class="container-buttons-footer">
-    <button class="btn btn-primary" routerLink="/event/new/">
+<app-create-team *ngIf="showCreateForm" (hideCreateForm)="cancelCreateTeam()"></app-create-team>
+
+<div class="container-buttons-footer" *ngIf="!showCreateForm">
+    <button class="btn btn-secondary" routerLink="/event/list/">Voltar</button>
+    <button class="btn btn-primary" (click)="createTeam()">
         <span>Adicionar</span>
-        <i class="bi bi-plus"></i>
+        <i class="bi bi-plus-square"></i>
     </button>
 </div>

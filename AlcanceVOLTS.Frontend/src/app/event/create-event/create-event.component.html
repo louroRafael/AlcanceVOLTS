@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-6">
                     <mat-form-field appearance="outline">
-                        <mat-label>Período</mat-label>
+                        <mat-label>Datas</mat-label>
                         <mat-date-range-input [rangePicker]="picker">
                         <input matStartDate placeholder="Start date" [formControl]="initialDateFormControl">
                         <input matEndDate [formControl]="finalDateFormControl">
@@ -34,13 +34,49 @@
         </div>
         <div class="col-2">
             <div class="check-options">
-                <!-- <mat-checkbox [formControl]="recurrentFormControl">Evento Recorrente</mat-checkbox> -->
                 <mat-checkbox [formControl]="buttonFormControl">Bóton</mat-checkbox>
+                <mat-checkbox [formControl]="tshirtFormControl">Camiseta</mat-checkbox>
             </div>
         </div>
     </div>
-    <div *ngIf="isNew" class="container-buttons-footer">
+
+    <div class="container-buttons-footer">
         <button class="btn btn-secondary" routerLink="/event/list/">Voltar</button>
-        <button class="btn btn-primary" type="submit" [disabled]="!this.form.valid">Criar</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!this.form.valid">
+            {{isNew ? "Criar" : "Salvar"}}
+            <i class="bi bi-save" *ngIf="!isNew"></i>
+        </button>
     </div>
 </form>
+
+<mat-divider></mat-divider>
+    <div class="periods">
+        <h4>Períodos</h4>
+        <div class="row">
+            <mat-form-field appearance="outline" class="col-3" *ngIf="isNew">
+                <mat-label>Quantidade</mat-label>
+                <input type="number" matInput [formControl]="periodsQuantityFormControl" min="1">
+                <mat-error *ngIf="periodsQuantityFormControl.hasError('required')">
+                    Quantidade de períodos é <strong>obrigatória</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="periods-container" *ngIf="!isNew">
+            <div class="row" *ngFor="let period of periods">
+                <mat-form-field appearance="outline" class="col-5">
+                    <mat-label>Descrição</mat-label>
+                    <input type="text" matInput [(ngModel)]="period.description">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="col-5">
+                    <mat-label>Data</mat-label>
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="period.date" 
+                    [min]="minDate" [max]="maxDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <div class="col-2 check-options">
+                    <mat-checkbox [(ngModel)]="period.snack">Lanche</mat-checkbox>
+                </div>
+            </div>
+        </div>
+    </div>

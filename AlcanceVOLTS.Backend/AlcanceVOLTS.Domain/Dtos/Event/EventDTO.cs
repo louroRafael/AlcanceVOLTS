@@ -22,9 +22,11 @@ namespace AlcanceVOLTS.Domain.Dtos.Event
             InitialDate = eventModel.InitialDate.ToString("dd/MM/yyyy");
             FinalDate = eventModel.FinalDate.ToString("dd/MM/yyyy");
             Button = eventModel.Button ? "Sim" : "Não";
+            Tshirt = eventModel.Tshirt ? "Sim" : "Não";
             Recurrent = eventModel.Recurrent ? "Sim" : "Não";
             Frequency = eventModel.Frequency;
             Status = eventModel.Status;
+            PeriodsQuantity = eventModel.PeriodsQuantity;
         }
 
         public string Id { get; set; }
@@ -33,9 +35,11 @@ namespace AlcanceVOLTS.Domain.Dtos.Event
         public string InitialDate { get; set; }
         public string FinalDate { get; set; }
         public string Button { get; set; }
+        public string Tshirt { get; set; }
         public string Recurrent { get; set; }
         public EventFrequency? Frequency { get; set; }
         public EventStatus Status { get; set; }
+        public int PeriodsQuantity { get; set; }
 
     }
 }

@@ -14,12 +14,6 @@
                 </td>
             </ng-container>
 
-            <ng-container matColumnDef="observation">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>OBSERVAÇÕES</th>
-                <td mat-cell *matCellDef="let element">
-                  {{ element.observation }}
-                </td>
-            </ng-container>
             <ng-container matColumnDef="initialDate">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>INÍCIO</th>
                 <td mat-cell *matCellDef="let element">
@@ -41,6 +35,13 @@
                 </td>
             </ng-container>
 
+            <ng-container matColumnDef="tshirt">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>CAMISETA</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.tshirt }}
+                </td>
+            </ng-container>
+
             <ng-container matColumnDef="status">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>STATUS</th>
                 <td mat-cell *matCellDef="let element">
@@ -56,6 +57,10 @@
                         <button mat-menu-item routerLink="/event/details/{{element.id}}">
                             <i class="bi bi-eye"></i>
                             <span>Detalhes</span>
+                        </button>
+                        <button mat-menu-item (click)="deleteEvent(element.id)">
+                            <i class="bi bi-trash3"></i>
+                            <span>Deletar</span>
                         </button>
                     </mat-menu>
                 </td>

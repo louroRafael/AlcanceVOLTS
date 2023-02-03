@@ -2,6 +2,7 @@
 using AlcanceVOLTS.API.Controllers.Common;
 using AlcanceVOLTS.Domain.Dtos.Common;
 using AlcanceVOLTS.Domain.Dtos.Event;
+using AlcanceVOLTS.Domain.Dtos.Team;
 using AlcanceVOLTS.Domain.Dtos.User;
 using AlcanceVOLTS.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -27,6 +28,14 @@ namespace AlcanceVOLTS.API.Controllers
         public async Task<IActionResult> CreateOrUpdate([FromBody] RegisterEventDTO eventModel) 
         {
             await _eventService.SaveAsync(eventModel);
+            return ResponseOK();
+        }
+
+        [BearerAuthorize]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await _eventService.DeleteAsync(id);
             return ResponseOK();
         }
 
@@ -57,6 +66,13 @@ namespace AlcanceVOLTS.API.Controllers
         public async Task<IActionResult> ListVolunteers(string id)
         {
             return ResponseOK(await _eventService.GetVolunteersByEvent(Guid.Parse(id)));
+        }
+
+        [BearerAuthorize]
+        [HttpPost("save-team")]
+        public async Task<IActionResult> SaveTeam([FromBody] RegisterTeamDTO teamModel)
+        {
+            return ResponseOK();
         }
     }
 }

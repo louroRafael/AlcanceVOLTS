@@ -8,7 +8,7 @@ namespace AlcanceVOLTS.Domain.Interfaces.Common
     {
         Task<TEntity> GetAsync(Guid id);
         Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
-        Task SaveAsync(TEntity entity);
+        Task<TEntity> SaveAsync(TEntity entity);
         Task DeleteAsync(Guid id);
         IQueryable<TEntity> Query();
         IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> predicate);

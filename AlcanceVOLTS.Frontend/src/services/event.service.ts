@@ -19,7 +19,7 @@ export class EventService extends HttpService {
   }
 
   save(event: RegisterEvent) {
-    return this.post<any>(this.ENDPOINT, event);
+    return this.post<string>(this.ENDPOINT, event);
   }
 
   deleteEvent(id: string) {

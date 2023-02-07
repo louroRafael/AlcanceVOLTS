@@ -8,6 +8,9 @@ namespace AlcanceVOLTS.Domain.Interfaces.Services
 {
     public interface IEventService : ICrudServiceBase<Event>
     {
+        ///<summary> Save Or Update Event </summary>
+        Task<Guid> CreateOrUpdateAsync(RegisterEventDTO eventDTO);
+
         ///<summary> Get List Of Events By Filter </summary>
         Task<List<EventDTO>> GetAllByFilter(FilterDTO filter);
 

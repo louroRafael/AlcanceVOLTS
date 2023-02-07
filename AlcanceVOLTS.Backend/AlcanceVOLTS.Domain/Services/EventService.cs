@@ -10,14 +10,27 @@ namespace AlcanceVOLTS.Domain.Services
 {
     public class EventService : CrudServiceBase<Event>, IEventService
     {
-        private new readonly IEventRepository _repository;
+        private readonly IEventRepository _eventRepository;
+        private readonly IPeriodRepository _periodRepository;
 
-        public EventService(IEventRepository repository) : base(repository)
+        public EventService(IEventRepository eventRepository, IPeriodRepository periodRepository) : base(eventRepository)
         {
-            _repository = repository;
+            _eventRepository = eventRepository;
+            _periodRepository = periodRepository;
         }
 
-        public async Task<List<EventDTO>> GetAllByFilter(FilterDTO filter) => await _repository.GetAllByFilter(filter);
+        public async Task<Guid> CreateOrUpdateAsync(RegisterEventDTO eventDTO)
+        {
+            var eventModel = await _eventRepository.SaveAsync(eventDTO);
+
+            if(eventDTO.Periods != null)
+                foreach(var period in eventDTO.Periods)
+                    await _periodRepository.SaveAsync(period);
+
+            return eventModel.Id;
+        }
+
+        public async Task<List<EventDTO>> GetAllByFilter(FilterDTO filter) => await _eventRepository.GetAllByFilter(filter);
 
         public async Task<List<VolunteerDTO>> GetVolunteersByEvent(Guid eventId)
         {

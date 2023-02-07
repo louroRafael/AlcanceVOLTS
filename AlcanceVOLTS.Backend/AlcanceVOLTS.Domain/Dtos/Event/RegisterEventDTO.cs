@@ -10,7 +10,7 @@ namespace AlcanceVOLTS.Domain.Dtos.Event
 {
     public class RegisterEventDTO
     {
-        public string? Id { get; set; }
+        public Guid? Id { get; set; }
         public string Name { get; set; }
         public string Observation { get; set; }
         public DateTime InitialDate { get; set; }

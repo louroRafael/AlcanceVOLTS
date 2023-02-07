@@ -37,8 +37,7 @@ namespace AlcanceVOLTS.Domain.Models
         {
             Event eventModel = new Event();
 
-            if(eventDTO.Id != null)
-                eventModel.Id = Guid.Parse(eventDTO.Id);
+            eventModel.Id = eventDTO.Id ?? Guid.Empty;
             eventModel.Name = eventDTO.Name;
             eventModel.Observation = eventDTO.Observation;
             eventModel.InitialDate = eventDTO.InitialDate;

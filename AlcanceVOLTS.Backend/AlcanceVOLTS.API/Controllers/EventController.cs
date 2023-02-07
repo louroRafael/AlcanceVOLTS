@@ -27,8 +27,7 @@ namespace AlcanceVOLTS.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateOrUpdate([FromBody] RegisterEventDTO eventModel) 
         {
-            await _eventService.SaveAsync(eventModel);
-            return ResponseOK();
+            return ResponseOK(await _eventService.CreateOrUpdateAsync(eventModel));
         }
 
         [BearerAuthorize]

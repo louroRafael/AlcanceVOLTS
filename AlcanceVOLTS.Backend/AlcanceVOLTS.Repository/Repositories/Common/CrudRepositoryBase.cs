@@ -92,7 +92,7 @@ namespace AlcanceVOLTS.Repository.Repositories.Common
             return new PagedResult<TResult>(page, totalPages, totalItems, items);
         }
 
-        public async Task SaveAsync(TEntity entity)
+        public async Task<TEntity> SaveAsync(TEntity entity)
         {
             var now = DateTime.Now;
             entity.UpdatedAt = now;
@@ -106,6 +106,8 @@ namespace AlcanceVOLTS.Repository.Repositories.Common
                 this._context.Entry(entity).State = EntityState.Modified;
 
             await this._context.SaveChangesAsync();
+
+            return entity;
         }
     }
 }

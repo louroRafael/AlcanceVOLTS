@@ -37,7 +37,7 @@ body {
 }
 
 .container-buttons-footer {
-    position: absolute;
+    position: fixed;
     bottom: 10px;
     left: 0;
     display: flex;
@@ -372,6 +372,14 @@ button.mat-menu-item {
 
 .mat-tab-group {
     height: 100%;
+}
+
+.mat-tab-body {
+    height: calc(100% - 100px);
+}
+
+.mat-tab-body-content {
+    overflow-x: hidden !important;
 }
 
 .mat-tab-body-wrapper {

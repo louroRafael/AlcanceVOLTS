@@ -16,11 +16,13 @@ namespace AlcanceVOLTS.API.Controllers
     {
         private readonly IEventService _eventService;
         private readonly IUserService _userService;
+        private readonly ITeamService _teamService;
 
-        public EventController(IEventService eventService, IUserService userService)
+        public EventController(IEventService eventService, IUserService userService, ITeamService teamService)
         {
             _eventService = eventService;
             _userService = userService;
+            _teamService = teamService;
         }
 
         [BearerAuthorize]
@@ -71,7 +73,15 @@ namespace AlcanceVOLTS.API.Controllers
         [HttpPost("save-team")]
         public async Task<IActionResult> SaveTeam([FromBody] RegisterTeamDTO teamModel)
         {
+            await _teamService.SaveAsync(teamModel);
             return ResponseOK();
+        }
+
+        [BearerAuthorize]
+        [HttpGet("get-teams/{id}")]
+        public async Task<IActionResult> GetTeams(Guid id)
+        {
+            return ResponseOK(await _teamService.GetByEvent(id));
         }
     }
 }

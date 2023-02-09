@@ -16,7 +16,7 @@
             <app-event-volunteers [eventId]="id"></app-event-volunteers>
         </mat-tab>
         <mat-tab label="Equipes">
-            <app-event-teams></app-event-teams>
+            <app-event-teams [periods]="periods" [eventId]="id"></app-event-teams>
         </mat-tab>
     </mat-tab-group>
 </div>

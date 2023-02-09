@@ -8,8 +8,10 @@ namespace AlcanceVOLTS.Domain.Dtos.Team
 {
     public class RegisterTeamDTO
     {
-        public string? Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public bool Dynamic { get; set; }
+        public Guid EventId { get; set; }
+        public List<TeamAreaDTO> TeamAreas { get; set; }
     }
 }

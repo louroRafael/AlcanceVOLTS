@@ -1,4 +1,5 @@
-﻿using AlcanceVOLTS.Domain.Models.Common;
+﻿using AlcanceVOLTS.Domain.Dtos.Team;
+using AlcanceVOLTS.Domain.Models.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,19 @@ namespace AlcanceVOLTS.Domain.Models
         public virtual Team Team { get; set; }
         public Guid AreaId { get; set; }
         public virtual Area Area { get; set; }
+
+        #region Operators
+
+        public static implicit operator TeamArea(TeamAreaDTO teamAreaDTO)
+        {
+            var teamArea = new TeamArea();
+
+            teamArea.TeamId = teamAreaDTO.TeamId;
+            teamArea.AreaId = teamAreaDTO.AreaId;
+
+            return teamArea;
+        }
+
+        #endregion Operators
     }
 }

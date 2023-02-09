@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Filter } from 'src/models/common/filter';
 import { Event } from 'src/models/event/event';
 import { RegisterEvent } from 'src/models/event/register-event';
-import { RegisterTeam } from 'src/models/event/register-team';
+import { RegisterTeam } from 'src/models/team/register-team';
+import { Team } from 'src/models/team/team';
 import { Volunteer } from 'src/models/user/volunteer';
 import { HttpService } from './http.service';
 
@@ -44,5 +45,9 @@ export class EventService extends HttpService {
 
   saveTeam(team: RegisterTeam) {
     return this.post<any>(this.ENDPOINT + 'save-team', team);
+  }
+
+  getTeams(eventId: string) {
+    return this.get<Team[]>(this.ENDPOINT + `get-teams/${eventId}`);
   }
 }

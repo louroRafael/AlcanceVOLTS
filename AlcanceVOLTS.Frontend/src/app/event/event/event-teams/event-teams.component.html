@@ -1,4 +1,40 @@
-<app-create-team *ngIf="showCreateForm" (hideCreateForm)="cancelCreateTeam()"></app-create-team>
+<app-create-team *ngIf="showCreateForm" (hideCreateForm)="cancelCreateTeam()" [periods]="periods" [eventId]="eventId"></app-create-team>
+
+<div class="table-container" *ngIf="!showCreateForm">
+    <table class="table-striped" [dataSource]="dataSource" mat-table matSort>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>NOME</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.name }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dynamic">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>DINÂMICA</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.dynamic }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>AÇÕES</th>
+            <td mat-cell *matCellDef="let element">
+                <i class="bi bi-three-dots nav-icon table-actions" (click)="$event.stopPropagation()" [matMenuTriggerFor]="menu"></i>
+                <mat-menu #menu="matMenu">
+                    
+                </mat-menu>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator  [pageSize]="10"
+                        [pageSizeOptions] = "[10, 20, 30, dataSource.data.length]"
+                        showFirstLastButtons> 
+    </mat-paginator>
+</div>
 
 <div class="container-buttons-footer" *ngIf="!showCreateForm">
     <button class="btn btn-secondary" routerLink="/event/list/">Voltar</button>

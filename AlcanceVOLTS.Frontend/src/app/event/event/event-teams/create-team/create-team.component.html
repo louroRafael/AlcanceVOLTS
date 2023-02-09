@@ -1,7 +1,7 @@
 <div>
     <h3>Criar <b>Equipe</b></h3>
 </div>
-<form [formGroup]="form" (submit)="save()">
+<form [formGroup]="form">
     <div class="row">
         <div class="col-8">
             <mat-form-field appearance="outline">
@@ -15,9 +15,19 @@
         <div class="col-4">
             <div class="slide-container">
                 <mat-label>Fixa</mat-label>
-                <mat-slide-toggle [formControl]="dynamicFormControl"></mat-slide-toggle>
+                <mat-slide-toggle [formControl]="dynamicFormControl" (change)="defineAreasQuantity()"></mat-slide-toggle>
                 <mat-label>Dinâmica</mat-label>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6" *ngFor="let teamArea of teamAreas">
+            <mat-form-field appearance="outline">
+                <mat-label>Área {{form.value.dynamic ? (teamArea.period?.description + " - " + (teamArea.period?.date | date:'dd/MM/yyyy')) : ""}}</mat-label>
+                <mat-select [(ngModel)]="teamArea.areaId" [ngModelOptions]="{standalone: true}">
+                    <mat-option *ngFor="let area of areas" [value]="area.id">{{area.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
     </div>
 </form>
@@ -25,7 +35,7 @@
     <button class="btn btn-secondary" (click)="cancel()">
         <span>Cancelar</span>
     </button>
-    <button class="btn btn-primary" type="submit" [disabled]="!this.form.valid">
+    <button class="btn btn-primary" (click)="save()" [disabled]="!this.form.valid">
         <span>Salvar</span>
         <i class="bi bi-save"></i>
     </button>

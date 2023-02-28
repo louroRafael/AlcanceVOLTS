@@ -37,7 +37,7 @@ body {
 }
 
 .container-buttons-footer {
-    position: fixed;
+    position: absolute;
     bottom: 10px;
     left: 0;
     display: flex;
@@ -375,7 +375,7 @@ button.mat-menu-item {
 }
 
 .mat-tab-body {
-    height: calc(100% - 100px);
+    height: 100%;
 }
 
 .mat-tab-body-content {
@@ -487,7 +487,6 @@ table {
 }
 
 thead {
-    padding-right: 13px;
     flex: 0 0 auto;
 }
   
@@ -502,6 +501,31 @@ tr {
     width: 100%;
     display: table;
     table-layout: fixed;
+}
+
+.table-edit-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    outline: none !important;
+}
+
+.table-edit-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .mat-form-field {
+        height: 60px;
+        display: flex;
+        align-items: center;
+    }
+
+    .mat-form-field-wrapper {
+        padding: 0px;
+        width: 100%;
+    }
 }
 
 //--------------------- Swal Alert ---------------------

@@ -3,14 +3,44 @@
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>NOME</th>
             <td mat-cell *matCellDef="let element">
-              {{ element.name }}
+                <i class="bi bi-lightning-fill leader-icon" *ngIf="element.teamLeader"></i>
+                {{ element.name }}
             </td>
         </ng-container>
 
         <ng-container matColumnDef="email">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>E-MAIL</th>
             <td mat-cell *matCellDef="let element">
-              {{ element.email }}
+                {{ element.email }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="team">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>EQUIPE</th>
+            <td mat-cell *matCellDef="let element">
+                <div class="table-edit-container">
+                        <span *ngIf="!element.teamEdit">{{ element.team?.name }}</span>
+
+                        <mat-form-field appearance="outline" *ngIf="element.teamEdit">
+                            <mat-label>Equipe</mat-label>
+                            <mat-select [(ngModel)]="element.team" [ngModelOptions]="{standalone: true}">
+                                <mat-option *ngFor="let team of teams" [value]="team">{{team.name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+                <button class="table-edit-button" *ngIf="element.teamEdit" (click)="saveVolunteer(element)">
+                    <i class="bi bi-save"></i>
+                </button>
+
+                <button class="table-edit-button" *ngIf="!element.teamEdit" (click)="editVolunteer(element)">
+                    <i class="bi bi-pencil-square"></i>
+                </button>
             </td>
         </ng-container>
 

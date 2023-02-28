@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Team } from 'src/models/team/team';
 import { Volunteer } from 'src/models/user/volunteer';
 import { AlertService } from 'src/services/alert.service';
 import { EventService } from 'src/services/event.service';
@@ -17,13 +18,17 @@ export class EventVolunteersComponent implements OnInit {
 
   @Input() eventId: string;
   public volunteers: Volunteer[] = [];
+  public importVolunteers: Volunteer[] = [];
+  public teams: Team[] = [];
 
   dataSource = new MatTableDataSource<Volunteer>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   displayedColumns: string[] = [
     'name',
-    'email'
+    'email',
+    'team',
+    'action'
   ];
 
   constructor(
@@ -34,6 +39,7 @@ export class EventVolunteersComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadElements();
+    this.loadTeams();
   }
 
   loadElements() {
@@ -44,7 +50,30 @@ export class EventVolunteersComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       
+      this.volunteers = r;
+
       this.alertService.hideLoading();
+    });
+  }
+
+  loadTeams() {
+    this.eventService.getTeams(this.eventId).subscribe(r => {
+      this.teams = r;
+    });
+  }
+
+  editVolunteer(volunteer: Volunteer) {
+    var index = this.volunteers.indexOf(volunteer);
+    
+    this.volunteers[index].teamEdit = true;
+  }
+
+  saveVolunteer(volunteer: Volunteer) {
+    var index = this.volunteers.indexOf(volunteer);
+
+    this.eventService.saveVolunteer(volunteer).subscribe(() => {
+      this.volunteers[index].teamEdit = false;
+      this.loadElements();
     });
   }
 
@@ -71,12 +100,12 @@ export class EventVolunteersComponent implements OnInit {
           this.alertService.hideLoading();
         }
         else {
-          this.volunteers = file.map(x => {
+          this.importVolunteers = file.map(x => {
             var volunteer = new Volunteer(x["Nome Completo"], x["E-mail"]);
             return volunteer;
           });
 
-          this.eventService.importVolunteers(this.volunteers, this.eventId).subscribe(r => {
+          this.eventService.importVolunteers(this.importVolunteers, this.eventId).subscribe(r => {
             this.snackBar.open("Prontinho! Voluntários importados com sucesso!", "OK", {
               duration: 3000,
               panelClass: ['success-snackbar']

@@ -16,5 +16,8 @@ namespace AlcanceVOLTS.Domain.Interfaces.Services
 
         ///<summary> Get List Of Volunteers By Event </summary>
         Task<List<VolunteerDTO>> GetVolunteersByEvent(Guid eventId);
+
+        ///<summary> Save Volunteer Info </summary>
+        Task SaveVolunteer(VolunteerDTO volunteer);
     }
 }

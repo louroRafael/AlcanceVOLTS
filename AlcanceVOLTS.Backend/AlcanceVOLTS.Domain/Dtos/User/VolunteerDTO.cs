@@ -1,4 +1,5 @@
-﻿using AlcanceVOLTS.Domain.Models;
+﻿using AlcanceVOLTS.Domain.Dtos.Team;
+using AlcanceVOLTS.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,15 +15,17 @@ namespace AlcanceVOLTS.Domain.Dtos.User
 
         }
 
-        public VolunteerDTO(Models.User user)
+        public VolunteerDTO(EventUser eventUser)
         {
-            Id = user.Id.ToString();
-            Name = user.Name;
-            Email = user.Login;
+            Id = eventUser.Id;
+            Name = eventUser.User.Name;
+            Email = eventUser.User.Login;
+            Team = eventUser.Team != null ? new TeamDTO(eventUser.Team) : null;
         }
 
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+        public TeamDTO? Team { get; set; }
     }
 }

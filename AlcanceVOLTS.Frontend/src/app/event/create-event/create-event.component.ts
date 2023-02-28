@@ -81,8 +81,6 @@ export class CreateEventComponent implements OnInit {
     
     if(!this.isNew)
       event.periods = this.periods;
-
-    console.log(event)
     
     this.eventService.save(event).subscribe(r => {
       this.router.navigate(['/event/details/' + r]);

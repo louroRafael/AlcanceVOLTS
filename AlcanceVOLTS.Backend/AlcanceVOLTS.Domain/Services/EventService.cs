@@ -12,11 +12,15 @@ namespace AlcanceVOLTS.Domain.Services
     {
         private readonly IEventRepository _eventRepository;
         private readonly IPeriodRepository _periodRepository;
+        private readonly IEventUserRepository _eventUserRepository;
 
-        public EventService(IEventRepository eventRepository, IPeriodRepository periodRepository) : base(eventRepository)
+        public EventService(IEventRepository eventRepository, 
+                            IPeriodRepository periodRepository, 
+                            IEventUserRepository eventUserRepository) : base(eventRepository)
         {
             _eventRepository = eventRepository;
             _periodRepository = periodRepository;
+            _eventUserRepository = eventUserRepository;
         }
 
         public async Task<Guid> CreateOrUpdateAsync(RegisterEventDTO eventDTO)
@@ -35,7 +39,12 @@ namespace AlcanceVOLTS.Domain.Services
         public async Task<List<VolunteerDTO>> GetVolunteersByEvent(Guid eventId)
         {
             var eventModel = await _repository.GetAsync(eventId);
-            return eventModel.EventUsers.Select(x => new VolunteerDTO(x.User)).ToList();
+            return eventModel.EventUsers.Select(x => new VolunteerDTO(x)).ToList();
+        }
+
+        public async Task SaveVolunteer(VolunteerDTO volunteer)
+        {
+            await _eventUserRepository.SaveAsync(volunteer);
         }
     }
 }

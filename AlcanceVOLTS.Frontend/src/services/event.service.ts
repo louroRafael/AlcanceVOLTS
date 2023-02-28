@@ -43,6 +43,10 @@ export class EventService extends HttpService {
     return this.put<any>(this.ENDPOINT + 'import-volunteers/' + id, volunteers);
   }
 
+  saveVolunteer(volunteer: Volunteer) {
+    return this.post<any>(this.ENDPOINT + 'save-volunteer', volunteer);
+  }
+
   saveTeam(team: RegisterTeam) {
     return this.post<any>(this.ENDPOINT + 'save-team', team);
   }

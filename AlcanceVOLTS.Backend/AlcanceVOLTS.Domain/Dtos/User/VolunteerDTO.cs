@@ -20,12 +20,14 @@ namespace AlcanceVOLTS.Domain.Dtos.User
             Id = eventUser.Id;
             Name = eventUser.User.Name;
             Email = eventUser.User.Login;
+            TeamLeader = eventUser.TeamLeader;
             Team = eventUser.Team != null ? new TeamDTO(eventUser.Team) : null;
         }
 
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+        public bool TeamLeader { get; set; }
         public TeamDTO? Team { get; set; }
     }
 }

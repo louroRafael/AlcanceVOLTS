@@ -101,6 +101,9 @@ namespace AlcanceVOLTS.Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool>("Button")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -109,6 +112,15 @@ namespace AlcanceVOLTS.Repository.Migrations
 
                     b.Property<Guid?>("TeamId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("TeamLeader")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Tshirt")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("TshirtSize")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");

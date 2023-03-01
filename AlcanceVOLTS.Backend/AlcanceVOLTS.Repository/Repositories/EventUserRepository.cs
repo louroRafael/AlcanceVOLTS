@@ -17,6 +17,7 @@ namespace AlcanceVOLTS.Repository.Repositories
             var volunteer = await GetAsync(volunteerDTO.Id);
 
             volunteer.TeamId = volunteerDTO.Team?.Id;
+            volunteer.TeamLeader = volunteerDTO.TeamLeader;
 
             await SaveAsync(volunteer);
         }

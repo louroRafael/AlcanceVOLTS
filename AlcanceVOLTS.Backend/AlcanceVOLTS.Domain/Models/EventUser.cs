@@ -1,4 +1,5 @@
-﻿using AlcanceVOLTS.Domain.Models.Common;
+﻿using AlcanceVOLTS.Domain.Enums;
+using AlcanceVOLTS.Domain.Models.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,11 @@ namespace AlcanceVOLTS.Domain.Models
             EventId = eventId;
             UserId = userId;
         }
+
+        public bool TeamLeader { get; set; }
+        public bool Button { get; set; }
+        public bool Tshirt { get; set; }
+        public TshirtSize TshirtSize { get; set; }
 
         public Guid EventId { get; set; }
         public virtual Event Event { get; set; }

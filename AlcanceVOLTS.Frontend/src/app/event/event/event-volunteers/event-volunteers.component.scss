@@ -1,5 +1,32 @@
 @import "../../../../variables";
 
+
+::ng-deep .mat-mini-fab .mat-button-wrapper {
+    line-height: 0px;
+}
+
+.volunteer-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-leader {
+    color: $color-7;
+    background-color: $color-6;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    transition: all 0.5s;
+}
+
+.btn-leader-checked {
+    color: $color-1;
+}
+
 .leader-icon {
     color: $color-5;
 }

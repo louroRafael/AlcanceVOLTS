@@ -41,6 +41,7 @@ import { ListAreaComponent } from './area/list-area/list-area.component';
 import { EventVolunteersComponent } from './event/event/event-volunteers/event-volunteers.component';
 import { EventTeamsComponent } from './event/event/event-teams/event-teams.component';
 import { CreateTeamComponent } from './event/event/event-teams/create-team/create-team.component';
+import { CheckInEventComponent } from './event/check-in-event/check-in-event.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { CreateTeamComponent } from './event/event/event-teams/create-team/creat
     ListAreaComponent,
     EventVolunteersComponent,
     EventTeamsComponent,
-    CreateTeamComponent
+    CreateTeamComponent,
+    CheckInEventComponent
   ],
   imports: [
     BrowserModule,

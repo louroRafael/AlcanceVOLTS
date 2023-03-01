@@ -1,0 +1,33 @@
+@import "../../../variables";
+
+.event-input {
+    width: 500px;
+    margin: auto;
+}
+
+.check-in-card {
+    background-color: $color-table;
+    width: 100%;
+    height: calc(100% - 50px);
+    border-radius: 10px;
+}
+
+.close-button {
+    position: absolute;
+    top: 100px;
+    right: 60px;
+
+    button {
+        background-color: $color-7;
+    }
+}
+
+.volunteer-input {
+    width: 500px;
+    margin: auto;
+    padding-top: 20px;
+}
+
+::ng-deep .mat-mini-fab .mat-button-wrapper {
+    line-height: 0;
+}

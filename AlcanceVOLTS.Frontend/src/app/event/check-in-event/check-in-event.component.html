@@ -1,0 +1,37 @@
+<div id="page" class="page">
+    <div class="page-header">
+        <div class="page-title">
+            <h2>Check-In <span>Voluntários</span></h2>
+        </div>
+    </div>
+
+    <div class="event-input" *ngIf="!eventSelected">
+        <mat-form-field appearance="outline">
+            <mat-label>Selecione um evento</mat-label>
+                <mat-select [(ngModel)]="eventSelected" [ngModelOptions]="{standalone: true}" (selectionChange)="loadEventInfo()">
+                    <mat-option *ngFor="let event of events" [value]="event.id">{{event.name}}</mat-option>
+                </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="check-in-card" *ngIf="eventSelected">
+        <div class="volunteer-input">
+            <mat-form-field appearance="outline">
+                <mat-label>Selecione um voluntário</mat-label>
+                    <mat-select [(ngModel)]="volunteerSelected" [ngModelOptions]="{standalone: true}">
+                        <mat-option *ngFor="let volunteer of volunteers" [value]="volunteer">{{volunteer.name}}</mat-option>
+                    </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="close-button">
+            <button mat-mini-fab matTooltip="Fechar" (click)="eventDeselect()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+    
+        <div class="volunteer-info" *ngIf="volunteerSelected">
+            <span *ngIf="volunteerSelected.teamLeader">Lider Equipe</span>
+        </div>
+    </div>
+</div>

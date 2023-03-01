@@ -1,5 +1,6 @@
 import { EventFrequency } from "src/enums/event-frequency";
 import { EventStatus } from "src/enums/event-status";
+import { Volunteer } from "../user/volunteer";
 
 export class Event {
     public id: string;

@@ -28,6 +28,46 @@
     padding-top: 20px;
 }
 
+.volunteer-info {
+    border-radius: 15px;
+    background-color: $color-6;
+    color: $color-1;
+    margin: 0 30px;
+
+    .volunteer-card-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+
+        td, th {
+            text-align: center;
+        }
+
+        .itens-deliver {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+}
+
 ::ng-deep .mat-mini-fab .mat-button-wrapper {
     line-height: 0;
+}
+
+::ng-deep .mat-badge-content {
+    background: $color-1;
+    color: $color-2;
+}
+
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    border-radius: 50%;
 }

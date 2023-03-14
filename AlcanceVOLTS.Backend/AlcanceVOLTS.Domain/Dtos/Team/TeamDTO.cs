@@ -16,7 +16,7 @@ namespace AlcanceVOLTS.Domain.Dtos.Team
         {
             Id = team.Id;
             Name = team.Name;
-            Dynamic = team.Dynamic ? "Dinâmica" : "Fixa";
+            Dynamic = team.Dynamic ? "Rotativa" : "Fixa";
         }
 
         public Guid Id { get; set; }

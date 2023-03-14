@@ -12,7 +12,7 @@ import { EventService } from 'src/services/event.service';
 export class CheckInEventComponent implements OnInit {
 
   public events: Event[] = [];
-  public eventSelected: string | null;
+  public eventSelected: Event | null;
 
   public volunteers: Volunteer[] = [];
   public volunteerSelected: Volunteer;
@@ -37,9 +37,12 @@ export class CheckInEventComponent implements OnInit {
 
   loadEventInfo() {
     if(this.eventSelected)
-      this.eventService.listVolunteers(this.eventSelected).subscribe(r => {
+      this.eventService.listVolunteers(this.eventSelected.id).subscribe(r => {
         this.volunteers = r;
       });
   }
 
+  teste() {
+    console.log(this.volunteerSelected)
+  }
 }

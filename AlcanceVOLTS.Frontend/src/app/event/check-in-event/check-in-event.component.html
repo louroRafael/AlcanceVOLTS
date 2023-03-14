@@ -9,7 +9,7 @@
         <mat-form-field appearance="outline">
             <mat-label>Selecione um evento</mat-label>
                 <mat-select [(ngModel)]="eventSelected" [ngModelOptions]="{standalone: true}" (selectionChange)="loadEventInfo()">
-                    <mat-option *ngFor="let event of events" [value]="event.id">{{event.name}}</mat-option>
+                    <mat-option *ngFor="let event of events" [value]="event">{{event.name}}</mat-option>
                 </mat-select>
         </mat-form-field>
     </div>
@@ -18,7 +18,7 @@
         <div class="volunteer-input">
             <mat-form-field appearance="outline">
                 <mat-label>Selecione um voluntário</mat-label>
-                    <mat-select [(ngModel)]="volunteerSelected" [ngModelOptions]="{standalone: true}">
+                    <mat-select [(ngModel)]="volunteerSelected" [ngModelOptions]="{standalone: true}" (selectionChange)="teste()">
                         <mat-option *ngFor="let volunteer of volunteers" [value]="volunteer">{{volunteer.name}}</mat-option>
                     </mat-select>
             </mat-form-field>
@@ -31,7 +31,102 @@
         </div>
     
         <div class="volunteer-info" *ngIf="volunteerSelected">
-            <span *ngIf="volunteerSelected.teamLeader">Lider Equipe</span>
+            <div class="row">
+                <div class="col-12">
+                    <div class="volunteer-card-section">
+                        <h1>{{volunteerSelected.name}}</h1>
+                        <p>
+                            {{volunteerSelected.team ? volunteerSelected.team.name : "Equipe não definida"}}
+                            <span *ngIf="volunteerSelected.teamLeader">
+                                ( Lider Equipe
+                                <i class="bi bi-lightning-fill"></i>
+                                )
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="volunteer-card-section">
+                        <h2>Escala</h2>
+
+                        <table class="schedule">
+                            <tr>
+                                <th>Sessão</th>
+                                <th>Área</th>
+                                <th>Lanche</th>
+                            </tr>
+                            <tr>
+                                <td>10/03 - Noite</td>
+                                <td>Folga</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>11/03 - Tarde</td>
+                                <td>Manutenção</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>11/03 - Noite</td>
+                                <td>Templo</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+
+            <div class="row">
+                <div class="col-12" *ngIf="eventSelected.button || eventSelected.tshirt">
+                    <div class="volunteer-card-section">
+                        <h2>Entregas</h2>
+
+                        <div class="itens-deliver">
+                            <div>
+                                <mat-checkbox matTooltip="Camiseta" matTooltipPosition="right" matBadge="M" matBadgeSize="large">
+                                    <img src="../../../assets/icons/tshirt-icon.png" alt="ícone camiseta" height="60">
+                                </mat-checkbox>
+                            </div>
+                            <div>
+                                <mat-checkbox matTooltip="Bóton" matTooltipPosition="right">
+                                    <img src="../../../assets/icons/button-icon.png" alt="ícone bóton" height="60">
+                                </mat-checkbox>
+                            </div>
+                            <div>
+                                <mat-checkbox matTooltip="Pulseira" matTooltipPosition="right">
+                                    <img src="../../../assets/icons/bracelet-icon.png" alt="ícone pulseira" height="60">
+                                </mat-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="volunteer-card-section">
+                        <h2>Check-In / Check-Out</h2>
+
+                        <div class="itens-deliver">
+                            <div>
+                                <mat-checkbox matTooltip="Rádio" matTooltipPosition="right">
+                                    <img src="../../../assets/icons/walkie-talkie-icon.png" alt="ícone rádio" height="60">
+                                </mat-checkbox>
+                            </div>
+                            <div>
+                                <mat-checkbox matTooltip="Crachá" matTooltipPosition="right">
+                                    <img src="../../../assets/icons/badge-icon.png" alt="ícone crachá" height="60">
+                                </mat-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

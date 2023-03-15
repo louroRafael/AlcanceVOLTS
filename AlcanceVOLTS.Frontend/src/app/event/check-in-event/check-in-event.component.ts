@@ -39,6 +39,7 @@ export class CheckInEventComponent implements OnInit {
     if(this.eventSelected)
       this.eventService.listVolunteers(this.eventSelected.id).subscribe(r => {
         this.volunteers = r;
+        console.log(this.volunteers)
       });
   }
 

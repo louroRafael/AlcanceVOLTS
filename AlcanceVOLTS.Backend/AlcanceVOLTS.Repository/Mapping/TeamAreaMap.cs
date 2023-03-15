@@ -18,6 +18,7 @@ namespace AlcanceVOLTS.Repository.Mapping
             entity.Property(x => x.Id).ValueGeneratedOnAdd();
             entity.HasOne(x => x.Team).WithMany(x => x.TeamAreas).HasForeignKey(x => x.TeamId);
             entity.HasOne(x => x.Area).WithMany().HasForeignKey(x => x.AreaId);
+            entity.HasOne(x => x.Period).WithMany().HasForeignKey(x => x.PeriodId);
         }
     }
 }

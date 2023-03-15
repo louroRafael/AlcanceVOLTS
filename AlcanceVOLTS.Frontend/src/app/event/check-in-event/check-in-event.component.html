@@ -59,19 +59,9 @@
                                 <th>Área</th>
                                 <th>Lanche</th>
                             </tr>
-                            <tr>
-                                <td>10/03 - Noite</td>
-                                <td>Folga</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>11/03 - Tarde</td>
-                                <td>Manutenção</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>11/03 - Noite</td>
-                                <td>Templo</td>
+                            <tr *ngFor="let teamArea of volunteerSelected.team?.teamAreas">
+                                <td>{{teamArea.period?.date | date: 'dd/MM'}} - {{teamArea.period?.description}}</td>
+                                <td>{{teamArea.areaName}}</td>
                                 <td></td>
                             </tr>
                         </table>

@@ -17,10 +17,12 @@ namespace AlcanceVOLTS.Domain.Dtos.Team
             Id = team.Id;
             Name = team.Name;
             Dynamic = team.Dynamic ? "Rotativa" : "Fixa";
+            TeamAreas = team.TeamAreas.Select(x => new TeamAreaDTO(x)).ToList();
         }
 
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Dynamic { get; set; }
+        public List<TeamAreaDTO> TeamAreas { get; set; }
     }
 }

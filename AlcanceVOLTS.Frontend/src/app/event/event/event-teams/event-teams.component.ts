@@ -56,5 +56,6 @@ export class EventTeamsComponent implements OnInit {
 
   cancelCreateTeam() {
     this.showCreateForm = false;
+    this.loadElements();
   }
 }

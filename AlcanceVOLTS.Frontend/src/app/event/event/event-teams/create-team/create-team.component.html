@@ -25,6 +25,7 @@
             <mat-form-field appearance="outline">
                 <mat-label>Área {{form.value.dynamic ? (teamArea.period?.description + " - " + (teamArea.period?.date | date:'dd/MM/yyyy')) : ""}}</mat-label>
                 <mat-select [(ngModel)]="teamArea.areaId" [ngModelOptions]="{standalone: true}">
+                    <mat-option value="">Descanso</mat-option>
                     <mat-option *ngFor="let area of areas" [value]="area.id">{{area.name}}</mat-option>
                 </mat-select>
             </mat-form-field>

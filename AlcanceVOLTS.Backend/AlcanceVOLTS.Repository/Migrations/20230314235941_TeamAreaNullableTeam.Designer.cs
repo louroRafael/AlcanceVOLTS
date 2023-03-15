@@ -4,6 +4,7 @@ using AlcanceVOLTS.Repository.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AlcanceVOLTS.Repository.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    partial class MainDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230314235941_TeamAreaNullableTeam")]
+    partial class TeamAreaNullableTeam
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -206,16 +209,13 @@ namespace AlcanceVOLTS.Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("AreaId")
+                    b.Property<Guid>("AreaId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("PeriodId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("TeamId")
+                    b.Property<Guid?>("TeamId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -224,8 +224,6 @@ namespace AlcanceVOLTS.Repository.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AreaId");
-
-                    b.HasIndex("PeriodId");
 
                     b.HasIndex("TeamId");
 
@@ -318,23 +316,15 @@ namespace AlcanceVOLTS.Repository.Migrations
                 {
                     b.HasOne("AlcanceVOLTS.Domain.Models.Area", "Area")
                         .WithMany()
-                        .HasForeignKey("AreaId");
-
-                    b.HasOne("AlcanceVOLTS.Domain.Models.Period", "Period")
-                        .WithMany()
-                        .HasForeignKey("PeriodId")
+                        .HasForeignKey("AreaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("AlcanceVOLTS.Domain.Models.Team", "Team")
                         .WithMany("TeamAreas")
-                        .HasForeignKey("TeamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TeamId");
 
                     b.Navigation("Area");
-
-                    b.Navigation("Period");
 
                     b.Navigation("Team");
                 });

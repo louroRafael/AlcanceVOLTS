@@ -1,4 +1,4 @@
 export class Area {
-    public id: string;
+    public id?: string;
     public name: string;
 }

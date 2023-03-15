@@ -4,6 +4,7 @@ using AlcanceVOLTS.Repository.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AlcanceVOLTS.Repository.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    partial class MainDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230315004439_FixTeamAreaNullableTeam")]
+    partial class FixTeamAreaNullableTeam
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -212,9 +215,6 @@ namespace AlcanceVOLTS.Repository.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("PeriodId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("TeamId")
                         .HasColumnType("uniqueidentifier");
 
@@ -224,8 +224,6 @@ namespace AlcanceVOLTS.Repository.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AreaId");
-
-                    b.HasIndex("PeriodId");
 
                     b.HasIndex("TeamId");
 
@@ -320,12 +318,6 @@ namespace AlcanceVOLTS.Repository.Migrations
                         .WithMany()
                         .HasForeignKey("AreaId");
 
-                    b.HasOne("AlcanceVOLTS.Domain.Models.Period", "Period")
-                        .WithMany()
-                        .HasForeignKey("PeriodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("AlcanceVOLTS.Domain.Models.Team", "Team")
                         .WithMany("TeamAreas")
                         .HasForeignKey("TeamId")
@@ -333,8 +325,6 @@ namespace AlcanceVOLTS.Repository.Migrations
                         .IsRequired();
 
                     b.Navigation("Area");
-
-                    b.Navigation("Period");
 
                     b.Navigation("Team");
                 });

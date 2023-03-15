@@ -1,10 +1,5 @@
 ﻿using AlcanceVOLTS.Domain.Dtos.Team;
 using AlcanceVOLTS.Domain.Models.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AlcanceVOLTS.Domain.Models
 {
@@ -12,8 +7,10 @@ namespace AlcanceVOLTS.Domain.Models
     {
         public Guid TeamId { get; set; }
         public virtual Team Team { get; set; }
-        public Guid AreaId { get; set; }
-        public virtual Area Area { get; set; }
+        public Guid? AreaId { get; set; }
+        public virtual Area? Area { get; set; }
+        public Guid PeriodId { get; set; }
+        public virtual Period Period { get; set; }
 
         #region Operators
 
@@ -22,7 +19,8 @@ namespace AlcanceVOLTS.Domain.Models
             var teamArea = new TeamArea();
 
             teamArea.TeamId = teamAreaDTO.TeamId;
-            teamArea.AreaId = teamAreaDTO.AreaId;
+            teamArea.AreaId = teamAreaDTO.AreaId != "" ? Guid.Parse(teamAreaDTO.AreaId) : null;
+            teamArea.PeriodId = teamAreaDTO.PeriodId;
 
             return teamArea;
         }

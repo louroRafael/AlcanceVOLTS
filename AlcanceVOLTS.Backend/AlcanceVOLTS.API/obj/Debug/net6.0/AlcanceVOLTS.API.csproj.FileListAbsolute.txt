@@ -91,3 +91,8 @@ C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.API\bin\Debug\net6.0\
 C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.API\bin\Debug\net6.0\AlcanceVOLTS.Repository.dll
 C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.API\bin\Debug\net6.0\AlcanceVOLTS.Domain.pdb
 C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.API\bin\Debug\net6.0\AlcanceVOLTS.Repository.pdb
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.API\obj\Debug\net6.0\staticwebassets\msbuild.AlcanceVOLTS.API.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.API\obj\Debug\net6.0\staticwebassets\msbuild.build.AlcanceVOLTS.API.props
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.AlcanceVOLTS.API.props
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.AlcanceVOLTS.API.props
+C:\Projetos\AlcanceVOLTS\AlcanceVOLTS.Backend\AlcanceVOLTS.API\obj\Debug\net6.0\staticwebassets.pack.json

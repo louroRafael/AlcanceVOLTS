@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\AlcanceVOLTS.API.props" />
+</Project>

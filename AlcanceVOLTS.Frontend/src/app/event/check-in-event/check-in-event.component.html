@@ -18,7 +18,7 @@
         <div class="volunteer-input">
             <mat-form-field appearance="outline">
                 <mat-label>Selecione um voluntário</mat-label>
-                    <mat-select [(ngModel)]="volunteerSelected" [ngModelOptions]="{standalone: true}" (selectionChange)="teste()">
+                    <mat-select [(ngModel)]="volunteerSelected" [ngModelOptions]="{standalone: true}">
                         <mat-option *ngFor="let volunteer of volunteers" [value]="volunteer">{{volunteer.name}}</mat-option>
                     </mat-select>
             </mat-form-field>
@@ -77,17 +77,17 @@
 
                         <div class="itens-deliver">
                             <div>
-                                <mat-checkbox matTooltip="Camiseta" matTooltipPosition="right" matBadge="M" matBadgeSize="large">
+                                <mat-checkbox [(ngModel)]="volunteerSelected.tshirt" matTooltip="Camiseta" matTooltipPosition="right" matBadge="M" matBadgeSize="large">
                                     <img src="../../../assets/icons/tshirt-icon.png" alt="ícone camiseta" height="60">
                                 </mat-checkbox>
                             </div>
                             <div>
-                                <mat-checkbox matTooltip="Bóton" matTooltipPosition="right">
+                                <mat-checkbox [(ngModel)]="volunteerSelected.button" matTooltip="Bóton" matTooltipPosition="right">
                                     <img src="../../../assets/icons/button-icon.png" alt="ícone bóton" height="60">
                                 </mat-checkbox>
                             </div>
                             <div>
-                                <mat-checkbox matTooltip="Pulseira" matTooltipPosition="right">
+                                <mat-checkbox [(ngModel)]="volunteerSelected.wristband" matTooltip="Pulseira" matTooltipPosition="right">
                                     <img src="../../../assets/icons/bracelet-icon.png" alt="ícone pulseira" height="60">
                                 </mat-checkbox>
                             </div>
@@ -104,16 +104,29 @@
 
                         <div class="itens-deliver">
                             <div>
-                                <mat-checkbox matTooltip="Rádio" matTooltipPosition="right">
+                                <mat-checkbox [(ngModel)]="volunteerSelected.walkieTalkie" matTooltip="Rádio" matTooltipPosition="right">
                                     <img src="../../../assets/icons/walkie-talkie-icon.png" alt="ícone rádio" height="60">
                                 </mat-checkbox>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Número</mat-label>
+                                    <input type="number" matInput [(ngModel)]="volunteerSelected.walkieTalkieNumber">
+                                </mat-form-field>
                             </div>
                             <div>
-                                <mat-checkbox matTooltip="Crachá" matTooltipPosition="right">
+                                <mat-checkbox [(ngModel)]="volunteerSelected.badge" matTooltip="Crachá" matTooltipPosition="right">
                                     <img src="../../../assets/icons/badge-icon.png" alt="ícone crachá" height="60">
                                 </mat-checkbox>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="btn-finish">
+                        <button class="btn btn-primary" (click)="finish()">Finalizar Check-In</button>
                     </div>
                 </div>
             </div>

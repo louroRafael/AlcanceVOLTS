@@ -20,6 +20,12 @@ namespace AlcanceVOLTS.Repository.Mapping
             entity.Property(x => x.Button);
             entity.Property(x => x.Tshirt);
             entity.Property(x => x.TshirtSize);
+            entity.Property(x => x.Wristband);
+            entity.Property(x => x.Badge);
+            entity.Property(x => x.BadgeLabel);
+            entity.Property(x => x.WalkieTalkie);
+            entity.Property(x => x.WalkieTalkieNumber);
+            entity.Property(x => x.CheckIn);
             entity.HasOne(x => x.Event).WithMany(x => x.EventUsers).HasForeignKey(x => x.EventId);
             entity.HasOne(x => x.Team).WithMany().HasForeignKey(x => x.TeamId);
             entity.HasOne(x => x.User).WithMany(x => x.EventUsers).HasForeignKey(x => x.UserId);

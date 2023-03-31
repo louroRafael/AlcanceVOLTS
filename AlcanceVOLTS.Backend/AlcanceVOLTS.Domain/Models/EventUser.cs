@@ -20,6 +20,12 @@ namespace AlcanceVOLTS.Domain.Models
         public bool Button { get; set; }
         public bool Tshirt { get; set; }
         public TshirtSize TshirtSize { get; set; }
+        public bool Wristband { get; set; }
+        public bool Badge { get; set; }
+        public string BadgeLabel { get; set; }
+        public bool WalkieTalkie { get; set; }
+        public int WalkieTalkieNumber { get; set; }
+        public bool CheckIn { get; set; }
 
         public Guid EventId { get; set; }
         public virtual Event Event { get; set; }

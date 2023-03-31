@@ -4,6 +4,7 @@ using AlcanceVOLTS.Repository.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AlcanceVOLTS.Repository.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    partial class MainDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230331025605_EventUserAddCheckinFields")]
+    partial class EventUserAddCheckinFields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -109,9 +112,6 @@ namespace AlcanceVOLTS.Repository.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Button")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("CheckIn")
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("CreatedAt")

@@ -8,5 +8,8 @@ namespace AlcanceVOLTS.Domain.Interfaces.Repositories
     {
         ///<summary> Save Event User </summary>
         Task SaveAsync(VolunteerDTO volunteer);
+
+        ///<summary> Save Check In Information </summary>
+        Task CheckInAsync(VolunteerDTO volunteerDTO);
     }
 }

@@ -15,7 +15,7 @@
     </div>
 
     <div class="check-in-card" *ngIf="eventSelected">
-        <div class="volunteer-input">
+        <div class="volunteer-input" *ngIf="!volunteerSelected">
             <mat-form-field appearance="outline">
                 <mat-label>Selecione um voluntário</mat-label>
                     <mat-select [(ngModel)]="volunteerSelected" [ngModelOptions]="{standalone: true}">
@@ -24,7 +24,7 @@
             </mat-form-field>
         </div>
 
-        <div class="close-button">
+        <div class="close-button" *ngIf="!volunteerSelected">
             <button mat-mini-fab matTooltip="Fechar" (click)="eventDeselect()">
                 <i class="bi bi-x-lg"></i>
             </button>
@@ -34,6 +34,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="volunteer-card-section">
+                        <div class="return-button">
+                            <button mat-mini-fab matTooltip="Voltar" (click)="volunteerDeselect()">
+                                <i class="bi bi-arrow-left"></i>
+                            </button>
+                        </div>
+
                         <h1>{{volunteerSelected.name}}</h1>
                         <p>
                             {{volunteerSelected.team ? volunteerSelected.team.name : "Equipe não definida"}}
@@ -77,7 +83,7 @@
 
                         <div class="itens-deliver">
                             <div>
-                                <mat-checkbox [(ngModel)]="volunteerSelected.tshirt" matTooltip="Camiseta" matTooltipPosition="right" matBadge="M" matBadgeSize="large">
+                                <mat-checkbox [(ngModel)]="volunteerSelected.tshirt" matTooltip="Camiseta" matTooltipPosition="right" [matBadge]="getTshirtSizeLabel(volunteerSelected.tshirtSize)" matBadgeSize="large">
                                     <img src="../../../assets/icons/tshirt-icon.png" alt="ícone camiseta" height="60">
                                 </mat-checkbox>
                             </div>

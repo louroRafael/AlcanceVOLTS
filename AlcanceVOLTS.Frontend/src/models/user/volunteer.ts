@@ -1,3 +1,4 @@
+import { TshirtSize } from "src/enums/tshirt-size";
 import { Team } from "../team/team";
 
 export class Volunteer {
@@ -8,6 +9,7 @@ export class Volunteer {
 
     public button: boolean;
     public tshirt: boolean;
+    public tshirtSize: TshirtSize;
     public wristband: boolean;
     public badge: boolean;
     public badgeLabel: string;

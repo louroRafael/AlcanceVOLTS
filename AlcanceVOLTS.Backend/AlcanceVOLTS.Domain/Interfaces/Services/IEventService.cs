@@ -19,5 +19,8 @@ namespace AlcanceVOLTS.Domain.Interfaces.Services
 
         ///<summary> Save Volunteer Info </summary>
         Task SaveVolunteer(VolunteerDTO volunteer);
+
+        ///<summary> Save Check In Info </summary>
+        Task CheckIn(VolunteerDTO volunteer);
     }
 }

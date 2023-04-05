@@ -46,5 +46,10 @@ namespace AlcanceVOLTS.Domain.Services
         {
             await _eventUserRepository.SaveAsync(volunteer);
         }
+
+        public async Task CheckIn(VolunteerDTO volunteer)
+        {
+            await _eventUserRepository.CheckInAsync(volunteer);
+        }
     }
 }

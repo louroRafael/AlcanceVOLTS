@@ -1,4 +1,5 @@
 ﻿using AlcanceVOLTS.Domain.Dtos.Team;
+using AlcanceVOLTS.Domain.Enums;
 using AlcanceVOLTS.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace AlcanceVOLTS.Domain.Dtos.User
             Email = eventUser.User.Login;
             Button = eventUser.Button;
             Tshirt = eventUser.Tshirt;
-            TshirtSize = eventUser.TshirtSize.ToString();
+            TshirtSize = eventUser.TshirtSize;
             Wristband = eventUser.Wristband;
             Badge = eventUser.Badge;
             BadgeLabel = eventUser.BadgeLabel;
@@ -38,7 +39,7 @@ namespace AlcanceVOLTS.Domain.Dtos.User
         public string Email { get; set; }
         public bool Button { get; set; }
         public bool Tshirt { get; set; }
-        public string TshirtSize { get; set; }
+        public TshirtSize TshirtSize { get; set; }
         public bool Wristband { get; set; }
         public bool Badge { get; set; }
         public string BadgeLabel { get; set; }

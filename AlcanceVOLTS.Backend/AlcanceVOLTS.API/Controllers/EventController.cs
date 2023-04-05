@@ -77,6 +77,14 @@ namespace AlcanceVOLTS.API.Controllers
         }
 
         [BearerAuthorize]
+        [HttpPost("check-in")]
+        public async Task<IActionResult> CheckIn([FromBody] VolunteerDTO volunteerDTO)
+        {
+            await _eventService.CheckIn(volunteerDTO);
+            return ResponseOK();
+        }
+
+        [BearerAuthorize]
         [HttpPost("save-team")]
         public async Task<IActionResult> SaveTeam([FromBody] RegisterTeamDTO teamModel)
         {

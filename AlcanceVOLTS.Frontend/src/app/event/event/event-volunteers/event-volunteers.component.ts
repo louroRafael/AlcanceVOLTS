@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { TshirtSize, TshirtSizeLabelMapping } from 'src/enums/tshirt-size';
 import { Team } from 'src/models/team/team';
 import { Volunteer } from 'src/models/user/volunteer';
 import { AlertService } from 'src/services/alert.service';
@@ -20,6 +21,7 @@ export class EventVolunteersComponent implements OnInit {
   public volunteers: Volunteer[] = [];
   public importVolunteers: Volunteer[] = [];
   public teams: Team[] = [];
+  public sizes = TshirtSizeLabelMapping;
 
   dataSource = new MatTableDataSource<Volunteer>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -28,6 +30,7 @@ export class EventVolunteersComponent implements OnInit {
     'name',
     'email',
     'team',
+    'tshirtSize',
     'action'
   ];
 
@@ -117,5 +120,13 @@ export class EventVolunteersComponent implements OnInit {
     }
     else
       this.alertService.hideLoading();
+  }
+
+  getTshirtSizeLabel(tshirtSize: TshirtSize) {
+    return TshirtSizeLabelMapping.find(x => x.value == tshirtSize)?.label;
+  }
+
+  compareWith(a: any, b: any): boolean {
+    return a && b ? a.id === b.id : a === b;
   }
 }

@@ -8,6 +8,7 @@ namespace AlcanceVOLTS.Domain.Enums
 {
     public enum TshirtSize
     {
+        None = 0,
         PP = 1,
         P = 2,
         M = 3,

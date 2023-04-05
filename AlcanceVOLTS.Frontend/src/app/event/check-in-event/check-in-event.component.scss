@@ -22,6 +22,17 @@
     }
 }
 
+.return-button {
+    position: absolute;
+    top: 15px;
+    left: 35px;
+
+    button {
+        background-color: $color-1;
+        font-size: 24px;
+    }
+}
+
 .volunteer-input {
     width: 500px;
     margin: auto;
@@ -33,10 +44,9 @@
     border: 8px solid $color-6;
     background-color: $color-6;
     color: $color-1;
-    margin: 0 30px;
     overflow-y: scroll;
     overflow-x: hidden;
-    max-height: 50vh;
+    max-height: 100%;
     
 
     .volunteer-card-section {

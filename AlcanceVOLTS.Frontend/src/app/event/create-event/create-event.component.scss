@@ -1,3 +1,9 @@
+.event-info-container {
+    height: calc(100% - 120px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
 .check-options {
     display: flex;
     flex-direction: column;

@@ -18,10 +18,6 @@
         <div class="volunteer-input" *ngIf="!volunteerSelected">
             <mat-form-field appearance="outline">
                 <mat-label>Selecione um voluntário</mat-label>
-                    <!-- <mat-select [(ngModel)]="volunteerSelected" [ngModelOptions]="{standalone: true}" (click)="this.matInput.focus()">
-                        <input type="text" matInput focus>
-                        <mat-option *ngFor="let volunteer of volunteers" [value]="volunteer">{{volunteer.name}}</mat-option>
-                    </mat-select> -->
                 <input type="text" aria-label="Voluntário" matInput [formControl]="volunteerControl" [matAutocomplete]="autocomplete">
                 <mat-autocomplete autoActiveFirstOption #autocomplete="matAutocomplete" [displayWith]="displayName" (optionSelected)="volunteerSelect($event.option.value)">
                     <mat-option *ngFor="let volunteer of filteredVolunteers | async" [value]="volunteer">{{volunteer.name}}</mat-option>
@@ -121,13 +117,10 @@
 
                         <div class="itens-deliver">
                             <div>
-                                <mat-checkbox [(ngModel)]="volunteerSelected.walkieTalkie" matTooltip="Rádio" matTooltipPosition="right">
+                                <mat-checkbox [(ngModel)]="volunteerSelected.walkieTalkie" matTooltip="Rádio" matTooltipPosition="right" (click)="selectRadio()" 
+                                                [matBadge]="volunteerSelected.walkieTalkieNumber" matBadgeSize="large" [matBadgeHidden]="volunteerSelected.walkieTalkieNumber == 0">
                                     <img src="../../../assets/icons/walkie-talkie-icon.png" alt="ícone rádio - fonte: freepik.com" height="60">
                                 </mat-checkbox>
-                                <mat-form-field appearance="outline">
-                                    <mat-label>Número</mat-label>
-                                    <input type="number" matInput [(ngModel)]="volunteerSelected.walkieTalkieNumber">
-                                </mat-form-field>
                             </div>
                             <div>
                                 <mat-checkbox [(ngModel)]="volunteerSelected.badge" matTooltip="Crachá" matTooltipPosition="right">

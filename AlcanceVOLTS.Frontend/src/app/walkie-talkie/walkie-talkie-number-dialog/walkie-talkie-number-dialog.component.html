@@ -1,0 +1,6 @@
+<h3>Selecione um rádio</h3>
+<mat-grid-list cols="5" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let number of numbers">
+        <button class="btn btn-number" [mat-dialog-close]="number">{{number}}</button>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -145,13 +145,18 @@
     margin-bottom: 5px;
 }
 
+::ng-deep .mat-dialog-container {
+    border-radius: 15px !important;
+}
+
 ::ng-deep .mat-mini-fab .mat-button-wrapper {
     line-height: 0;
 }
 
 ::ng-deep .mat-badge-content {
     background: $color-1;
-    color: $color-2;
+    color: $color-6;
+    font-size: 16px !important;
 }
 
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {

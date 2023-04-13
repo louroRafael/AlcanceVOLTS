@@ -24,6 +24,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,6 +46,7 @@ import { EventVolunteersComponent } from './event/event/event-volunteers/event-v
 import { EventTeamsComponent } from './event/event/event-teams/event-teams.component';
 import { CreateTeamComponent } from './event/event/event-teams/create-team/create-team.component';
 import { CheckInEventComponent } from './event/check-in-event/check-in-event.component';
+import { WalkieTalkieNumberDialogComponent } from './walkie-talkie/walkie-talkie-number-dialog/walkie-talkie-number-dialog.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +63,8 @@ import { CheckInEventComponent } from './event/check-in-event/check-in-event.com
     EventVolunteersComponent,
     EventTeamsComponent,
     CreateTeamComponent,
-    CheckInEventComponent
+    CheckInEventComponent,
+    WalkieTalkieNumberDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +93,9 @@ import { CheckInEventComponent } from './event/check-in-event/check-in-event.com
     MatButtonModule,
     MatTooltipModule,
     MatBadgeModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDialogModule,
+    MatGridListModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

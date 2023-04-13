@@ -1,0 +1,24 @@
+@import "../../../variables";
+
+h3 {
+    text-align: center;
+}
+
+.mat-grid-list {
+    min-width: 400px;
+}
+
+.btn-number {
+    background-color: $color-1;
+    color: $color-6;
+    border-radius: 20px;
+    width: 65px;
+    height: 40px;
+    font-family: $font-1;
+    font-size: 20px;
+    padding: 0;
+}
+
+.btn-number:hover {
+    background-color: $light-1;
+}

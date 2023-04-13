@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable, map, startWith } from 'rxjs';
+import { WalkieTalkieNumberDialogComponent } from 'src/app/walkie-talkie/walkie-talkie-number-dialog/walkie-talkie-number-dialog.component';
 import { TshirtSize, TshirtSizeLabelMapping } from 'src/enums/tshirt-size';
 import { Filter } from 'src/models/common/filter';
 import { Event } from 'src/models/event/event';
@@ -27,7 +29,8 @@ export class CheckInEventComponent implements OnInit {
   constructor(
     private eventService: EventService,
     private alertService: AlertService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -79,7 +82,8 @@ export class CheckInEventComponent implements OnInit {
   }
 
   getTshirtSizeLabel(tshirtSize: TshirtSize) {
-    return TshirtSizeLabelMapping.find(x => x.value == tshirtSize)?.label;
+    var label = TshirtSizeLabelMapping.find(x => x.value == tshirtSize)?.label;
+    return label == "Nenhum" ? "" : label;
   }
 
   checkSnack(periodId: string): boolean {
@@ -96,6 +100,25 @@ export class CheckInEventComponent implements OnInit {
     }
   }
 
+  selectRadio(): void {
+    if(!this.volunteerSelected?.walkieTalkie)
+    {
+      const dialogRef = this.dialog.open(WalkieTalkieNumberDialogComponent);
+
+      dialogRef.afterClosed().subscribe(r => {
+        if(this.volunteerSelected)
+        {
+          if(r)
+            this.volunteerSelected.walkieTalkieNumber = r;
+          else
+            this.volunteerSelected.walkieTalkie = false;
+        }
+      });
+    }
+    else
+      this.volunteerSelected.walkieTalkieNumber = 0;
+  }
+
   finish() {
     this.alertService.showLoading();
 
@@ -106,7 +129,7 @@ export class CheckInEventComponent implements OnInit {
       });
 
       this.alertService.hideLoading();
-      this.volunteerSelected = undefined;
+      this.volunteerDeselect();
     });
   }
 }

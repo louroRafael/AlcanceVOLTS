@@ -30,6 +30,7 @@ namespace AlcanceVOLTS.Domain.Dtos.User
             WalkieTalkie = eventUser.WalkieTalkie;
             WalkieTalkieNumber = eventUser.WalkieTalkieNumber;
             CheckIn = eventUser.CheckIn;
+            Snacks = eventUser.Snacks.Select(x => x.PeriodId).ToList();
             TeamLeader = eventUser.TeamLeader;
             Team = eventUser.Team != null ? new TeamDTO(eventUser.Team) : null;
         }
@@ -46,6 +47,7 @@ namespace AlcanceVOLTS.Domain.Dtos.User
         public bool WalkieTalkie { get; set; }
         public int WalkieTalkieNumber { get; set; }
         public bool CheckIn { get; set; }
+        public List<Guid> Snacks { get; set; }
         public bool TeamLeader { get; set; }
         public TeamDTO? Team { get; set; }
     }

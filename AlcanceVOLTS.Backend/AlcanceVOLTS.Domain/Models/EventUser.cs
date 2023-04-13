@@ -26,6 +26,7 @@ namespace AlcanceVOLTS.Domain.Models
         public bool WalkieTalkie { get; set; }
         public int WalkieTalkieNumber { get; set; }
         public bool CheckIn { get; set; }
+        public virtual List<Snack> Snacks { get; set; }
 
         public Guid EventId { get; set; }
         public virtual Event Event { get; set; }

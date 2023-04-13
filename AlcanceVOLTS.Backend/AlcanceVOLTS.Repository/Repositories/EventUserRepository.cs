@@ -33,6 +33,7 @@ namespace AlcanceVOLTS.Repository.Repositories
             volunteer.Badge = volunteerDTO.Badge;
             volunteer.WalkieTalkie = volunteerDTO.WalkieTalkie;
             volunteer.WalkieTalkieNumber = volunteerDTO.WalkieTalkieNumber;
+            volunteer.Snacks = volunteerDTO.Snacks.Select(x => new Snack(volunteerDTO.Id, x)).ToList();
 
             await SaveAsync(volunteer);
         }

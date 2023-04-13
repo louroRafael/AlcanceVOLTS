@@ -18,9 +18,14 @@
         <div class="volunteer-input" *ngIf="!volunteerSelected">
             <mat-form-field appearance="outline">
                 <mat-label>Selecione um voluntário</mat-label>
-                    <mat-select [(ngModel)]="volunteerSelected" [ngModelOptions]="{standalone: true}">
+                    <!-- <mat-select [(ngModel)]="volunteerSelected" [ngModelOptions]="{standalone: true}" (click)="this.matInput.focus()">
+                        <input type="text" matInput focus>
                         <mat-option *ngFor="let volunteer of volunteers" [value]="volunteer">{{volunteer.name}}</mat-option>
-                    </mat-select>
+                    </mat-select> -->
+                <input type="text" aria-label="Voluntário" matInput [formControl]="volunteerControl" [matAutocomplete]="autocomplete">
+                <mat-autocomplete autoActiveFirstOption #autocomplete="matAutocomplete" [displayWith]="displayName" (optionSelected)="volunteerSelect($event.option.value)">
+                    <mat-option *ngFor="let volunteer of filteredVolunteers | async" [value]="volunteer">{{volunteer.name}}</mat-option>
+                </mat-autocomplete>
             </mat-form-field>
         </div>
 
@@ -68,7 +73,13 @@
                             <tr *ngFor="let teamArea of volunteerSelected.team?.teamAreas">
                                 <td>{{teamArea.period?.date | date: 'dd/MM'}} - {{teamArea.period?.description}}</td>
                                 <td>{{teamArea.areaName}}</td>
-                                <td></td>
+                                <td>
+                                    <mat-checkbox *ngIf="teamArea.period?.snack && teamArea.areaId != ''" [disabled]="!teamArea.period?.snack || teamArea.areaId == ''"
+                                                    [checked]="checkSnack(teamArea.periodId)" (change)="hadSnack(teamArea.periodId)">
+                                    </mat-checkbox>
+                                    <img *ngIf="!teamArea.period?.snack || teamArea.areaId == ''" src="../../../assets/icons/no-snack-icon.png" alt="ícone sem lanche - fonte: freepik.com" 
+                                            height="40" class="no-snack" matTooltip="Sem Lanche" matTooltipPosition="right">
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -84,17 +95,17 @@
                         <div class="itens-deliver">
                             <div>
                                 <mat-checkbox [(ngModel)]="volunteerSelected.tshirt" matTooltip="Camiseta" matTooltipPosition="right" [matBadge]="getTshirtSizeLabel(volunteerSelected.tshirtSize)" matBadgeSize="large">
-                                    <img src="../../../assets/icons/tshirt-icon.png" alt="ícone camiseta" height="60">
+                                    <img src="../../../assets/icons/tshirt-icon.png" alt="ícone camiseta - fonte: freepik.com" height="60">
                                 </mat-checkbox>
                             </div>
                             <div>
                                 <mat-checkbox [(ngModel)]="volunteerSelected.button" matTooltip="Bóton" matTooltipPosition="right">
-                                    <img src="../../../assets/icons/button-icon.png" alt="ícone bóton" height="60">
+                                    <img src="../../../assets/icons/button-icon.png" alt="ícone bóton - fonte: freepik.com" height="60">
                                 </mat-checkbox>
                             </div>
                             <div>
                                 <mat-checkbox [(ngModel)]="volunteerSelected.wristband" matTooltip="Pulseira" matTooltipPosition="right">
-                                    <img src="../../../assets/icons/bracelet-icon.png" alt="ícone pulseira" height="60">
+                                    <img src="../../../assets/icons/bracelet-icon.png" alt="ícone pulseira - fonte: freepik.com" height="60">
                                 </mat-checkbox>
                             </div>
                         </div>
@@ -111,7 +122,7 @@
                         <div class="itens-deliver">
                             <div>
                                 <mat-checkbox [(ngModel)]="volunteerSelected.walkieTalkie" matTooltip="Rádio" matTooltipPosition="right">
-                                    <img src="../../../assets/icons/walkie-talkie-icon.png" alt="ícone rádio" height="60">
+                                    <img src="../../../assets/icons/walkie-talkie-icon.png" alt="ícone rádio - fonte: freepik.com" height="60">
                                 </mat-checkbox>
                                 <mat-form-field appearance="outline">
                                     <mat-label>Número</mat-label>
@@ -120,7 +131,7 @@
                             </div>
                             <div>
                                 <mat-checkbox [(ngModel)]="volunteerSelected.badge" matTooltip="Crachá" matTooltipPosition="right">
-                                    <img src="../../../assets/icons/badge-icon.png" alt="ícone crachá" height="60">
+                                    <img src="../../../assets/icons/badge-icon.png" alt="ícone crachá - fonte: freepik.com" height="60">
                                 </mat-checkbox>
                             </div>
                         </div>

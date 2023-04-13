@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable, map, startWith } from 'rxjs';
 import { TshirtSize, TshirtSizeLabelMapping } from 'src/enums/tshirt-size';
 import { Filter } from 'src/models/common/filter';
 import { Event } from 'src/models/event/event';
@@ -17,7 +19,9 @@ export class CheckInEventComponent implements OnInit {
   public events: Event[] = [];
   public eventSelected: Event | null;
 
+  volunteerControl = new FormControl<string | Volunteer>("");
   public volunteers: Volunteer[] = [];
+  public filteredVolunteers: Observable<Volunteer[]>;
   public volunteerSelected?: Volunteer;
 
   constructor(
@@ -38,21 +42,58 @@ export class CheckInEventComponent implements OnInit {
 
   eventDeselect() {
     this.eventSelected = null;
+    this.volunteerDeselect();
   }
 
   loadEventInfo() {
     if(this.eventSelected)
       this.eventService.listVolunteers(this.eventSelected.id).subscribe(r => {
         this.volunteers = r;
+
+        this.filteredVolunteers = this.volunteerControl.valueChanges
+        .pipe(
+          startWith(""),
+          map(volunteer => {
+            const name = typeof volunteer === 'string' ? volunteer : volunteer?.name;
+            return name ? this._filterVolunteer(name as string) : this.volunteers.slice();
+          })) ;
       });
+  }
+
+  displayName(volunteer: Volunteer): string {
+    return volunteer && volunteer.name ? volunteer.name : '';
+  }
+
+  private _filterVolunteer(value: string): Volunteer[] {
+    const filterValue = value.toLowerCase();
+    return this.volunteers.filter(x => x.name.toLowerCase().includes(filterValue));
+  }
+
+  volunteerSelect(volunteer: Volunteer) {
+    this.volunteerSelected = volunteer;
   }
 
   volunteerDeselect() {
     this.volunteerSelected = undefined;
+    this.volunteerControl.setValue("");
   }
 
   getTshirtSizeLabel(tshirtSize: TshirtSize) {
     return TshirtSizeLabelMapping.find(x => x.value == tshirtSize)?.label;
+  }
+
+  checkSnack(periodId: string): boolean {
+    return this.volunteerSelected?.snacks.find(x => x == periodId) != null;
+  }
+
+  hadSnack(periodId: string) {
+    if(this.volunteerSelected)
+    {
+      if(!this.volunteerSelected.snacks.some(x => x == periodId))
+        this.volunteerSelected.snacks.push(periodId);
+      else
+        this.volunteerSelected.snacks = this.volunteerSelected?.snacks.filter(x => x != periodId);
+    }
   }
 
   finish() {

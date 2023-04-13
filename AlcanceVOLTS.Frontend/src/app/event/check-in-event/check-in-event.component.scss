@@ -90,7 +90,21 @@
                 background-color: $color-6;
                 color: $color-1;
             }
+        }
+        ::ng-deep .mat-checkbox-frame {
+            border: 2px solid $color-1;
+            border-radius: 50% !important;
+        }
 
+        ::ng-deep.mat-checkbox-disabled.mat-checkbox-checked .mat-checkbox-background {
+            background-color: $color-7 !important;
+            opacity: 50%;
+        }
+
+        ::ng-deep.mat-checkbox-disabled .mat-checkbox-frame {
+            border-color: $color-7;
+            background-color: $color-7;
+            opacity: 50%;
         }
     }
 }
@@ -125,6 +139,10 @@
         background-color: $light-1;
         color: $color-2;
     }
+}
+
+.no-snack {
+    margin-bottom: 5px;
 }
 
 ::ng-deep .mat-mini-fab .mat-button-wrapper {

@@ -5,7 +5,8 @@ export class Volunteer {
     constructor(
         public name: string,
         public email: string,
-    ) {}
+    ) {
+    }
 
     public button: boolean;
     public tshirt: boolean;
@@ -16,6 +17,7 @@ export class Volunteer {
     public walkieTalkie: boolean;
     public walkieTalkieNumber: number;
     public checkIn: boolean;
+    public snacks: string[];
     public teamLeader: boolean;
     public team: Team;
     public teamEdit: boolean = false;
